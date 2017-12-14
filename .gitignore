@@ -1,20 +1,22 @@
-vendor/
-node_modules/
-npm-debug.log
+# Compiled class file
+*.class
 
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
+# Log file
+*.log
 
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
-storage/*.key
-.env.*.php
-.env.php
-.env
-Homestead.yaml
-Homestead.json
+# BlueJ files
+*.ctxt
 
-# Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
-.rocketeer/
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
