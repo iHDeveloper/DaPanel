@@ -37,7 +37,8 @@ yarn-error.log
 *.zip
 *.tar.gz
 *.rar
-
+*.code-workspace
+*.sh
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 >>>>>>> b8ed2b4f23327c88ea1e2eca695aa57ccf1b7166
