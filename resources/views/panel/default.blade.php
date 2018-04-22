@@ -257,11 +257,11 @@ $default_status_class = "label-warning";
         </script>
         <script>
         var old_status_class = "{{$default_status_class}}";
-        function setStatus(class, text){
+        function setStatus($class, text){
             var status = $("#{{$default_status_id}}")[0];
             status.classList.remove(old_status_class);
-            status.classList.add(class);
-            old_status_class = class;
+            status.classList.add($class);
+            old_status_class = $class;
             status.innerText = text;
         }
         </script>
