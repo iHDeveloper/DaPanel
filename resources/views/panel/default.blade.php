@@ -247,12 +247,14 @@ $service_nickname = false;
         $(document).ready(function(){
             $("#service-nickname").submit(function(event){
                 event.preventDefault();
+                var url = $(this).attr('action');
+                var nickname = $("form#service-nickname>div>div>input[name=nickname]")[0].value;
                 $.ajax({
-                    url: $(this).attr('action'),
+                    url: url,
                     type: 'POST',
                     dataType: 'json',
                     data: {
-                        nickname: $("form#service-nickname>div>div>input#nickname")[0].value
+                        nickname: nickname
                     }
                 });
             });
