@@ -17,7 +17,7 @@ class PanelController extends Controller
         }
         $found = $res['found'];
         if($found == true){
-            $token = session('DISCORD_AUTH_PROFILE_TOKEN');
+            $token = session(Settings::discord_session());
             if($token != null){
                 $authProfile = TokenManager::auth($req, $token, $id);
                 if($authProfile != null){
@@ -35,7 +35,7 @@ class PanelController extends Controller
     }
 
     public function login(Request $req, $id){
-        $token = session('DISCORD_AUTH_PROFILE_TOKEN');
+        $token = session(Settings::discord_session());
         if ($token == null){
             return redirect()->route('panel.find', ["id"=>$id]);
         }
@@ -60,7 +60,7 @@ class PanelController extends Controller
     }
 
     public function open(Request $req, $id){
-        $token = session('DISCORD_AUTH_PROFILE_TOKEN');
+        $token = session(Settings::discord_session());
         if ($token == null){
             return redirect()->route('panel.find', ["id"=>$id]);
         }
@@ -87,7 +87,7 @@ class PanelController extends Controller
     }
 
     public function page(Request $req, $id, $page){
-        $token = session('DISCORD_AUTH_PROFILE_TOKEN');
+        $token = session(Settings::discord_session());
         if ($token == null){
             return redirect()->route('panel.find', ["id"=>$id]);
         }
@@ -143,7 +143,7 @@ class PanelController extends Controller
     }
 
     public function route(Request $req, $id, $route){
-        $token = session('DISCORD_AUTH_PROFILE_TOKEN');
+        $token = session(Settings::discord_session());
         if ($token == null){
             return redirect()->route('panel.find', ["id"=>$id]);
         }
