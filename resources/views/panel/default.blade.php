@@ -245,7 +245,7 @@ $service_nickname = false;
         <?php if($service_nickname): ?>
         <script>
         $(document).ready(function(){
-            $("service-nickname").submit(function(event){
+            $("#service-nickname").submit(function(event){
                 event.preventDefault();
                 $.ajax({
                     url: $(this).attr('action'),
