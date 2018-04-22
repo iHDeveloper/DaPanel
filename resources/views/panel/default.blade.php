@@ -145,14 +145,6 @@ $default_status_class = "label-warning";
                 <div class="panel-heading">{{ $page["text"] }}</div>
 
                 <div class="panel-body">
-                    <hr>
-                        <center>
-                            <h3>
-                                <span id="{{$default_status_id}}" class="label {{$default_status_class}}">
-                                </span>
-                            </h3>
-                        </center>
-                    <hr>
                     <?php foreach ($page["components"] as $id => $object): ?>
                         <?php
                             if(array_key_exists('name', $object)) 
@@ -188,6 +180,14 @@ $default_status_class = "label-warning";
                             <{{$type}} id="{{$id}}" name="{{$name}}" class="{{$class}}" onclick="goto('{{$route}}')" {{$attribute}}>{{$text}}</{{$type}}>
                         <?php endif;?>
                     <?php endforeach; ?>
+                    <hr />
+                    <center>
+                        <h3>
+                            <span id="{{$default_status_id}}" class="label {{$default_status_class}}">
+                            </span>
+                        </h3>
+                    </center>
+                    <hr />
                 </div>
             </div>
         </div>
