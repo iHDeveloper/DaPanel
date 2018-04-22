@@ -14,6 +14,10 @@ foreach ($config as $key => $value) {
 
 # services
 $service_nickname = false;
+
+# DONT TOUCH THIS
+$default_status_id = "status";
+$default_status_class = "label-warning";
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -135,6 +139,14 @@ $service_nickname = false;
 
 	<br />
 
+    <hr>
+    
+    <center>
+    <h1><span id="{{$default_status_id}}" class="{{$default_status_class}}"></span></h1>
+    </center>
+
+    <hr>
+
 	<div class="container">
         <div class="row">
             <div class="panel {{$page["class"]}}">
@@ -243,6 +255,16 @@ $service_nickname = false;
             }
         }
         </script>
+        <script>
+        var old_status_class = "{{$default_status_class}}";
+        function setStatus(class, text){
+            var status = $("#{{$default_status_id}}")[0];
+            status.classList.remove(old_status_class);
+            status.classList.add(class);
+            old_status_class = class;
+            status.innerText = text;
+        }
+        </script>
         <?php if($service_nickname): ?>
         <script>
         $(document).ready(function(){
@@ -260,6 +282,18 @@ $service_nickname = false;
                     },
                     headers: {
                         'X-CSRF-TOKEN': token
+                    },
+                    beforeSend: function(){
+                        setStatus("label-warning", "Loading...");
+                    },
+                    success: function(data){
+                        if(data.code == 302){
+                            setStatus("label-danger", "We can't change your nickname. Permission denied!");
+                        } else if(data.code == 301){
+                            setStatus("label-info", "Your nickname is the same");
+                        } else if(data.code == 300){
+                            setStatus("label-success", "Your nickname has been changed!");
+                        }
                     }
                 });
             });
