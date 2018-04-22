@@ -156,6 +156,7 @@ $service_nickname = false;
                         <?php if ($type == "form" && $route == "@service/nickname"): ?>
                             <?php $service_nickname = true; ?>
                             <form id="service-nickname" action="{{ route('service.nickname', ["id"=>$placeholders['server.id']]) }}">
+                                <input type="hidden" name="csrf-token" value="{{csrf_token()}}">
                                 <div class="form-group">
                                     <label for="nickname" class="col-md-4 control-label">Nickname</label>
 
@@ -249,12 +250,16 @@ $service_nickname = false;
                 event.preventDefault();
                 var url = $(this).attr('action');
                 var nickname = $("form#service-nickname>div>div>input[name=nickname]")[0].value;
+                var token = $("form#service-nickname>input[name=csrf-token]")[0].value;
                 $.ajax({
                     url: url,
                     type: 'POST',
                     dataType: 'json',
                     data: {
                         nickname: nickname
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': token
                     }
                 });
             });
