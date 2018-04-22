@@ -142,7 +142,7 @@ $default_status_class = "label-warning";
     <hr>
     
     <center>
-    <h1><span id="{{$default_status_id}}" class="{{$default_status_class}}"></span></h1>
+    <h3><span id="{{$default_status_id}}" class="label {{$default_status_class}}"></span></h3>
     </center>
 
     <hr>
