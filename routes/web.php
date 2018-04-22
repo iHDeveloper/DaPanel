@@ -11,8 +11,13 @@
 |
 */
 
-Route::prefix('api/')->group(function(){
+Route::prefix('api')->group(function(){
     Route::get('test', function(){
         return response()->json(["status"=>0]);
+    });
+    Route::prefix('panel')->group(function(){
+        Route::get('info', function(){
+            // TODO Info Route about the server name with id and clients
+        });
     });
 });
