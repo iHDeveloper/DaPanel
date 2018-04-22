@@ -17,4 +17,8 @@ class Settings extends Controller
     public static function discord_redirect_url(){
         return "http://dapanel.tk/oauth2/discord";
     }
+
+    public static function discord_session(){
+        return 'DISCORD_AUTH_PROFILE_TOKEN';
+    }
 }
