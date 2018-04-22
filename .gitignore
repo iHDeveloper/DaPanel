@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 6b224977271fd523579e9bbd52c7595eb8e93e6e
 /node_modules
 /public/hot
 /public/storage
@@ -11,3 +15,30 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
+<<<<<<< HEAD
+=======
+=======
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+>>>>>>> b8ed2b4f23327c88ea1e2eca695aa57ccf1b7166
+>>>>>>> 6b224977271fd523579e9bbd52c7595eb8e93e6e
