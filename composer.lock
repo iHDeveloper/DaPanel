@@ -207,7 +207,11 @@
                 "cron",
                 "schedule"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-06 15:51:55"
+=======
             "time": "2018-04-06T15:51:55+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "egulias/email-validator",
@@ -264,7 +268,11 @@
                 "validation",
                 "validator"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-10 10:11:19"
+=======
             "time": "2018-04-10T10:11:19+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "erusev/parsedown",
@@ -872,7 +880,11 @@
                 "framework",
                 "laravel"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-17 12:51:04"
+=======
             "time": "2018-04-17T12:51:04+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "laravel/tinker",
@@ -935,7 +947,11 @@
                 "laravel",
                 "psysh"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-16 12:10:37"
+=======
             "time": "2018-04-16T12:10:37+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "league/flysystem",
@@ -1019,7 +1035,11 @@
                 "sftp",
                 "storage"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-06 09:58:14"
+=======
             "time": "2018-04-06T09:58:14+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "league/oauth2-client",
@@ -1264,7 +1284,11 @@
                 "parser",
                 "php"
             ],
+<<<<<<< HEAD
+            "time": "2018-03-25 17:35:16"
+=======
             "time": "2018-03-25T17:35:16+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "paragonie/random_compat",
@@ -1312,7 +1336,11 @@
                 "pseudorandom",
                 "random"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-04 21:24:14"
+=======
             "time": "2018-04-04T21:24:14+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "psr/container",
@@ -1578,7 +1606,11 @@
                 "interactive",
                 "shell"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-18 12:32:50"
+=======
             "time": "2018-04-18T12:32:50+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "ramsey/uuid",
@@ -1781,7 +1813,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2018-04-03 05:24:00"
+=======
             "time": "2018-04-03T05:24:00+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "symfony/css-selector",
@@ -1834,7 +1870,11 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2018-03-19 22:35:49"
+=======
             "time": "2018-03-19T22:35:49+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "symfony/debug",
@@ -1890,7 +1930,11 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2018-04-03 05:24:00"
+=======
             "time": "2018-04-03T05:24:00+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1953,7 +1997,11 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2018-04-06 07:35:43"
+=======
             "time": "2018-04-06T07:35:43+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "symfony/finder",
@@ -2002,7 +2050,11 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2018-04-04 05:10:37"
+=======
             "time": "2018-04-04T05:10:37+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "symfony/http-foundation",
@@ -2055,7 +2107,11 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2018-04-03 05:24:00"
+=======
             "time": "2018-04-03T05:24:00+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "symfony/http-kernel",
@@ -2141,7 +2197,11 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2018-04-06 16:25:03"
+=======
             "time": "2018-04-06T16:25:03+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2304,7 +2364,11 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2018-04-03 05:24:00"
+=======
             "time": "2018-04-03T05:24:00+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "symfony/routing",
@@ -2382,7 +2446,11 @@
                 "uri",
                 "url"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-04 13:50:32"
+=======
             "time": "2018-04-04T13:50:32+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "symfony/translation",
@@ -2519,7 +2587,11 @@
                 "debug",
                 "dump"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-04 05:10:37"
+=======
             "time": "2018-04-04T05:10:37+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "team-reflex/oauth2-discord",
@@ -3417,7 +3489,11 @@
                 "spy",
                 "stub"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-18 13:57:24"
+=======
             "time": "2018-04-18T13:57:24+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3480,7 +3556,11 @@
                 "testing",
                 "xunit"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-06 15:39:20"
+=======
             "time": "2018-04-06T15:39:20+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3746,7 +3826,11 @@
                 "testing",
                 "xunit"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-18 13:41:53"
+=======
             "time": "2018-04-18T13:41:53+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3802,7 +3886,11 @@
                 "mock",
                 "xunit"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-11 04:50:36"
+=======
             "time": "2018-04-11T04:50:36+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -3911,7 +3999,11 @@
                 "compare",
                 "equality"
             ],
+<<<<<<< HEAD
+            "time": "2018-04-18 13:33:00"
+=======
             "time": "2018-04-18T13:33:00+00:00"
+>>>>>>> 3ef819c1d682d6d443713359d9ec7ed51a3a5b7f
         },
         {
             "name": "sebastian/diff",
