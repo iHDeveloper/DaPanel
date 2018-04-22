@@ -139,20 +139,20 @@ $default_status_class = "label-warning";
 
 	<br />
 
-    <hr>
-    
-    <center>
-    <h3><span id="{{$default_status_id}}" class="label {{$default_status_class}}"></span></h3>
-    </center>
-
-    <hr>
-
 	<div class="container">
         <div class="row">
             <div class="panel {{$page["class"]}}">
                 <div class="panel-heading">{{ $page["text"] }}</div>
 
                 <div class="panel-body">
+                    <hr>
+                        <center>
+                            <h3>
+                                <span id="{{$default_status_id}}" class="label {{$default_status_class}}">
+                                </span>
+                            </h3>
+                        </center>
+                    <hr>
                     <?php foreach ($page["components"] as $id => $object): ?>
                         <?php
                             if(array_key_exists('name', $object)) 
