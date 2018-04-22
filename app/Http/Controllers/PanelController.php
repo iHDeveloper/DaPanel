@@ -12,7 +12,7 @@ class PanelController extends Controller
     
     public function panel(Request $req, $id){
         $res = BotClient::get('/check/panel/' . $id);
-        dd($found);
+        dd($res);
         $found = $res['found'];
         if($found == true){
             $token = session('DISCORD_AUTH_PROFILE_TOKEN');
