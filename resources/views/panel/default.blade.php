@@ -12,6 +12,8 @@ foreach ($config as $key => $value) {
     $pageconfig[$key] = $c;
 }
 
+# services
+$service_nickname = false;
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -152,7 +154,8 @@ foreach ($config as $key => $value) {
                             if(array_key_exists('route', $object)) $route = $object["route"]; else $route = "";
                         ?>
                         <?php if ($type == "form" && $route == "@service/nickname"): ?>
-                            <form action="{{ route('service.nickname', ["id"=>$placeholders['server.id']]) }}">
+                            <?php $service_nickname = true; ?>
+                            <form id="service-nickname" action="{{ route('service.nickname', ["id"=>$placeholders['server.id']]) }}">
                                 <div class="form-group">
                                     <label for="nickname" class="col-md-4 control-label">Nickname</label>
 
@@ -239,7 +242,23 @@ foreach ($config as $key => $value) {
             }
         }
         </script>
-
+        <?php if($service_nickname): ?>
+        <script>
+        $(document).ready(function(){
+            $("service-nickname").submit(function(event){
+                event.preventDefault();
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        nickname: $("form#service-nickname>div>div>input#nickname")[0].value
+                    }
+                });
+            });
+        });
+        </script>
+        <?php endif; ?>
 
     </body>
 </html>
