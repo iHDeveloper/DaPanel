@@ -19,3 +19,8 @@ Route::get("/{id}/$@{route}/{token?}", "PanelController@route")->name("panel.rou
 Route::post("/@{id}/@services/@nickname", "ServicesController@nickname")->name("service.nickname");
 Route::get("oauth2/discord/{id?}", "OAuth2Controller@discord")->name("oauth2.discord");
 Route::get("devices/auth", "DevicesController@auth");
+Route::prefix("/@studio")->group(function(){
+    Route::get("/", "StudioController@home");
+    Route::get("/{id}/editor", "StudioController@editor");
+    Route::get("/{id}/app", "StudioController@app");
+});
