@@ -20,6 +20,7 @@ Route::get("oauth2/discord/{id?}", "OAuth2Controller@discord")->name("oauth2.dis
 Route::get("devices/auth", "DevicesController@auth");
 Route::prefix("/@studio")->group(function(){
     Route::get("/", "StudioController@home");
+    Route::get("/editor", "StudioController@editor");
     Route::get("/{id}/editor", "StudioController@editor");
     Route::get("/{id}/app", "StudioController@app");
 });
