@@ -37,9 +37,9 @@ $default_status_class = "label-warning";
     </style>
     <link rel="stylesheet" href="{{asset('css/discord.css')}}">
 </head>
-<body class="app">
-    <div class="titlebar">
-        <h1>Title: {{$pageconfig['welcome']['title']}}</h1>
+<body class="layout">
+    <div class="welcome">
+        <h1 class="welcome-title">Title: {{$pageconfig['welcome']['title']}}</h1>
     </div>
 </body>
 </html>
