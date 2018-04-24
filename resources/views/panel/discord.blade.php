@@ -29,6 +29,12 @@ $default_status_class = "label-warning";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    @font-face {
+        font-family: DiscordFont;
+        src url({{asset('fonts/Whitney-BlackItalic.otf')}})
+    }
+    </style>
     <link rel="stylesheet" href="{{asset('css/discord.css')}}">
 </head>
 <body class="app">
