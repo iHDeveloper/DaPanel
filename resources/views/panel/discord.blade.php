@@ -33,6 +33,7 @@ $default_status_class = "label-warning";
 </head>
 <body class="app">
     <div class="titlebar">
+        <h1>Title: {{$page['welcome']['title']}}</h1>
     </div>
 </body>
 </html>
