@@ -30,23 +30,23 @@ $default_status_class = "label-warning";
         <title>{{$page["title"]}}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="{{asset('@images/apple-touch-icon.png')}}">
-        <link rel="stylesheet" href="{{asset('@css/fonticons.css')}}">
-        <link rel="stylesheet" href="{{asset('@fonts/stylesheet.css')}}">
-        <link rel="stylesheet" href="{{asset('@css/font-awesome.min.css')}}">
-        <link rel="stylesheet" href="{{asset('@css/bootstrap.min.css')}}">
+        <link rel="apple-touch-icon" href="{{asset('images/apple-touch-icon.png')}}">
+        <link rel="stylesheet" href="{{asset('css/fonticons.css')}}">
+        <link rel="stylesheet" href="{{asset('fonts/stylesheet.css')}}">
+        <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 
 
         <!--For Plugins external css-->
-        <link rel="stylesheet" href="{{asset('@css/plugins.css')}}" />
+        <link rel="stylesheet" href="{{asset('css/plugins.css')}}" />
 
         <!--Theme custom css -->
-        <link rel="stylesheet" href="{{asset('@css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
         <!--Theme Responsive css-->
-        <link rel="stylesheet" href="{{asset('@css/responsive.css')}}" />
+        <link rel="stylesheet" href="{{asset('css/responsive.css')}}" />
 
-        <script src="{{asset('@js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
+        <script src="{{asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
         <style>
         .text-color-black{
             color: black;
@@ -231,15 +231,15 @@ $default_status_class = "label-warning";
             <a href="#"><i class="fa fa-chevron-up"></i></a>
         </div>
 
-        <script src="{{asset('@js/vendor/jquery-1.11.2.min.js')}}"></script>
-        <script src="{{asset('@js/vendor/bootstrap.min.js')}}"></script>
+        <script src="{{asset('js/vendor/jquery-1.11.2.min.js')}}"></script>
+        <script src="{{asset('js/vendor/bootstrap.min.js')}}"></script>
 
-        <script src="{{asset('@js/jquery.easypiechart.min.js')}}"></script>
-        <script src="{{asset('@js/jquery.mixitup.min.js')}}"></script>
-        <script src="{{asset('@js/jquery.easing.1.3.js')}}"></script>
+        <script src="{{asset('js/jquery.easypiechart.min.js')}}"></script>
+        <script src="{{asset('js/jquery.mixitup.min.js')}}"></script>
+        <script src="{{asset('js/jquery.easing.1.3.js')}}"></script>
 
-        <script src="{{asset('@js/plugins.js')}}"></script>
-        <script src="{{asset('@js/main.js')}}"></script>
+        <script src="{{asset('js/plugins.js')}}"></script>
+        <script src="{{asset('js/main.js')}}"></script>
         <script>
         function goto(name){
             var p = false;
