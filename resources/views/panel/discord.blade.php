@@ -39,7 +39,8 @@ $default_status_class = "label-warning";
 </head>
 <body class="layout">
     <div class="welcome">
-        <h1 class="welcome-title">Title: {{$pageconfig['welcome']['title']}}</h1>
+        <h1 class="welcome-title">{{$pageconfig['welcome']['title']}}</h1>
+        <h4 class="welcome-subtitle">{{$pageconfig['welcome']['subtitle']}}</h4>
     </div>
 </body>
 </html>
