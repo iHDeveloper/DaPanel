@@ -124,7 +124,6 @@ class PanelController extends Controller
                 "client.name" => $info['nickname'],
                 "clients" => $info['clients'],
             ];
-            dd('panel.'.$layout['name']);
             return view('panel.' . $layout['name'])->with([
                 "branch" => $branch,
                 "config" => $config,
