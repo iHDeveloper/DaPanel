@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-.welcome-title {
+.welcome-title .welcome-subtitle {
     text-align: center;
     color: white;
 }
