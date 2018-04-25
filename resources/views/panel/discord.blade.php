@@ -44,53 +44,67 @@ $default_status_class = "label-warning";
     </div>
     
     <div class="container">
-        <div class="panel">
-            <div class="panel-header">Panel</div>
-            <div class="panel-content">
-                <p>- Text 1</p>
-                <p>Label :</p>
-                <input type="text" class="input" />
-                <button class="button">Test</button>
-            </div>
-        </div>
-    </div>
-
-    <?php foreach ($page["components"] as $id => $object): ?>
-        <?php
-            if(array_key_exists('name', $object)) 
-            $name = $object["name"]; 
-            else $name = "";
-            if(array_key_exists('class', $object)) $class = $object["class"]; else $class = "";
-            if(array_key_exists('type', $object)) $type = $object["type"]; else $type = "";
-            if(array_key_exists('text', $object)) $text = $object["text"]; else $text = "";
-            if(array_key_exists('parent', $object)) $parent = $object["parent"]; else $parent = "";
-            if(array_key_exists('attribute', $object)) $attribute = $object["attribute"]; else $attribute = "";
-            if(array_key_exists('route', $object)) $route = $object["route"]; else $route = "";
-        ?>
-        <?php if ($type == "form" && $route == "@service/nickname"): ?>
-            <div class="panel">
-                <div class="panel-header">Nickname</div>
-                <div class="panel-content">
-                    <form id="service-nickname" action="{{ route('service.nickname', ["id"=>$placeholders['server.id']]) }}">
-                        <input type="hidden" name="csrf-token" value="{{csrf_token()}}">
-                        <br>
-                        <p>Nickname: </p>
-                        <input type="text" class="input" name="nickname" value="" placeholder="{{$placeholders['client.name']}}" required autofocus>
-                        <button type="submit" class="{{$class}}">
-                            {{$text}}
-                        </button>
-                    </form>
+        <?php foreach ($page["components"] as $id => $object): ?>
+            <?php
+                if(array_key_exists('name', $object)) 
+                $name = $object["name"]; 
+                else $name = "";
+                if(array_key_exists('class', $object)) $class = $object["class"]; else $class = "";
+                if(array_key_exists('type', $object)) $type = $object["type"]; else $type = "";
+                if(array_key_exists('text', $object)) $text = $object["text"]; else $text = "";
+                if(array_key_exists('parent', $object)) $parent = $object["parent"]; else $parent = "";
+                if(array_key_exists('attribute', $object)) $attribute = $object["attribute"]; else $attribute = "";
+                if(array_key_exists('route', $object)) $route = $object["route"]; else $route = "";
+            ?>
+            <?php if ($type == "form" && $route == "@service/nickname"): ?>
+                <div class="panel">
+                    <div class="panel-header">Nickname</div>
+                    <div class="panel-content">
+                        <form id="service-nickname" action="{{ route('service.nickname', ["id"=>$placeholders['server.id']]) }}">
+                            <input type="hidden" name="csrf-token" value="{{csrf_token()}}">
+                            <br>
+                            <p>Nickname: </p>
+                            <input type="text" class="input" name="nickname" value="" placeholder="{{$placeholders['client.name']}}" required autofocus>
+                            <button type="submit" class="{{$class}}">
+                                {{$text}}
+                            </button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        <?php else: ?>
-            <{{$type}} id="{{$id}}" name="{{$name}}" class="{{$class}}" onclick="goto('{{$route}}')" {{$attribute}}>{{$text}}</{{$type}}>
-            <?php if($parent != null): ?>
-            <script>
-                if(document.getElementById({{$parent}}) != null || document.getElemenetById({{$id}}) != null) document.getElementById({{$parent}}).appendChild(document.getElemenetById({{$parent}}))
-            </script>
-            <?php endif; ?>    
-        <?php endif;?>
-    <?php endforeach; ?>
-    
+            <?php else: ?>
+                <{{$type}} id="{{$id}}" name="{{$name}}" class="{{$class}}" onclick="goto('{{$route}}')" {{$attribute}}>{{$text}}</{{$type}}>
+                <?php if($parent != null): ?>
+                <script>
+                    if(document.getElementById({{$parent}}) != null || document.getElemenetById({{$id}}) != null) document.getElementById({{$parent}}).appendChild(document.getElemenetById({{$parent}}))
+                </script>
+                <?php endif; ?>    
+            <?php endif;?>
+        <?php endforeach; ?>
+    </div>
+    <script>
+        function goto(name){
+            var p = false;
+            if(name == "") return;
+            if(name.startsWith('#')) p = true;
+            name = name.substring(1);
+            var routeUrl = "{{route('panel.route', ['id'=>$server_id,'route'=>null])}}" + name;
+            var pageUrl = "{{route('panel.page', ['id'=>$server_id,'page'=>null])}}" + name;
+            if(p){
+                window.location.assign(pageUrl);
+            } else {
+                window.location.assign(routeUrl);
+            }
+        }
+        </script>
+        <script>
+        var old_status_class = "{{$default_status_class}}";
+        function setStatus($class, text){
+            var status = $("#{{$default_status_id}}")[0];
+            status.classList.remove(old_status_class);
+            status.classList.add($class);
+            old_status_class = $class;
+            status.innerText = text;
+        }
+    </script>
 </body>
 </html>
