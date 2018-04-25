@@ -68,6 +68,7 @@ $default_status_class = "label-warning";
                             <button type="submit" class="{{$class}}">
                                 {{$text}}
                             </button>
+                            <h3 class="status" id="service-nickname-status"></h3>
                         </form>
                     </div>
                 </div>
@@ -95,8 +96,8 @@ $default_status_class = "label-warning";
                 window.location.assign(routeUrl);
             }
         }
-        </script>
-        <script>
+    </script>
+    <script>
         var old_status_class = "{{$default_status_class}}";
         function setStatus($class, text){
             var status = $("#{{$default_status_id}}")[0];
