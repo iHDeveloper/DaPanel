@@ -9,7 +9,7 @@
         <title>DaPanel</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {{ str_replace(view('layout.og'), '"') }}
+        {{ str_replace('"', '', view('layout.og')) }}
         <link rel="apple-touch-icon" href="{{asset('images/apple-touch-icon.png')}}">
         <link rel="stylesheet" href="{{asset('css/fonticons.css')}}">
         <link rel="stylesheet" href="{{asset('fonts/stylesheet.css')}}">
