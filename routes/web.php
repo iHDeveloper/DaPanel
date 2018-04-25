@@ -14,15 +14,12 @@
 # Others
 Route::get("/", function(){return view("layout.app");});
 Route::get("devices/auth", "DevicesController@auth");
-Route::any( '(.*)', function( $page ){
-    dd($page);
-});
 
 # OAuth2
 Route::get("oauth2/discord/{id?}", "OAuth2Controller@discord")->name("oauth2.discord");
 
 # Services
-Route::post("@{id}/@services/@nickname", "ServicesController@nickname")->name("service.nickname");
+Route::post("@services/@{id}/@nickname", "ServicesController@nickname")->name("service.nickname");
 
 # Studio Group
 Route::prefix("@studio")->group(function(){
