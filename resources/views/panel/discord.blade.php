@@ -57,6 +57,7 @@ $default_status_class = "label-warning";
                 if(array_key_exists('route', $object)) $route = $object["route"]; else $route = "";
             ?>
             <?php if ($type == "form" && $route == "@service/nickname"): ?>
+                <?php $service_nickname = true; ?>
                 <div class="panel">
                     <div class="panel-header">Nickname</div>
                     <div class="panel-content">
