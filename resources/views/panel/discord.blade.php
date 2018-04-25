@@ -48,7 +48,8 @@ $default_status_class = "label-warning";
             <div class="panel-header">Panel</div>
             <div class="panel-content">
                 <p>- Text 1</p>
-                <p>- Text 2</p>
+                <p>Label :</p>
+                <input type="text" class="input" />
                 <button class="button">Test</button>
             </div>
         </div>
