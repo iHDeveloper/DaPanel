@@ -52,3 +52,16 @@ button,
     position: relative;
     padding: 2px 30px;
 }
+
+input,
+.input {
+    border: 1px solid #268bd2;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(53, 56, 60);
+    padding: 0 0 0 5px;
+    font-size: 18px;
+    display: flex;
+    box-sizing: border-box;
+}
