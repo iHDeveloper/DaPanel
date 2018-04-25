@@ -77,7 +77,7 @@ $default_status_class = "label-warning";
                 <{{$type}} id="{{$id}}" name="{{$name}}" class="{{$class}}" onclick="goto('{{$route}}')" {{$attribute}}>{{$text}}</{{$type}}>
                 <?php if($parent != null): ?>
                 <script>
-                    if(document.getElementById({{$parent}}) != null || document.getElemenetById({{$id}}) != null) document.getElementById({{$parent}}).appendChild(document.getElemenetById({{$parent}}))
+                    if(document.getElementById('{{$parent}}') != null || document.getElemenetById('{{$id}}') != null) document.getElementById('{{$parent}}').appendChild(document.getElemenetById('{{$parent}}'));
                 </script>
                 <?php endif; ?>    
             <?php endif;?>
