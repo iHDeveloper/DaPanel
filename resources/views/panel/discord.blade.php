@@ -38,9 +38,18 @@ $default_status_class = "label-warning";
     <link rel="stylesheet" href="{{asset('css/discord.css')}}">
 </head>
 <body class="layout">
-    <div class="welcome">
-        <h1 class="welcome-title">{{$pageconfig['welcome']['title']}}</h1>
-        <h4 class="welcome-subtitle">{{$pageconfig['welcome']['subtitle']}}</h4>
+    <div class="info">
+        <h1 class="info-title">{{$pageconfig['info']['title']}}</h1>
+        <h4 class="info-subtitle">{{$pageconfig['info']['subtitle']}}</h4>
+    </div>
+    
+    <div class="panel">
+        <div class="panel-header">Panel</div>
+        <div class="panel-content">
+            <p>- Text 1</p>
+            <p>- Text 2</p>
+            <button class="button">Test</button>
+        </div>
     </div>
 </body>
 </html>
