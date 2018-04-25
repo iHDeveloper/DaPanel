@@ -43,13 +43,16 @@ $default_status_class = "label-warning";
         <h4 class="info-subtitle">{{$pageconfig['info']['subtitle']}}</h4>
     </div>
     
-    <div class="panel">
-        <div class="panel-header">Panel</div>
-        <div class="panel-content">
-            <p>- Text 1</p>
-            <p>- Text 2</p>
-            <button class="button">Test</button>
+    <div class="container">
+        <div class="panel">
+            <div class="panel-header">Panel</div>
+            <div class="panel-content">
+                <p>- Text 1</p>
+                <p>- Text 2</p>
+                <button class="button">Test</button>
+            </div>
         </div>
     </div>
+    
 </body>
 </html>
