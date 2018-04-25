@@ -8,6 +8,7 @@ class ServicesController extends Controller
 {
     
     public function nickname(Request $req, $id){
+        dd($id);
         $token = session(Settings::discord_session());
         $authProfile = TokenManager::auth($req, $token, $id);
         if ($authProfile == null){
