@@ -14,6 +14,9 @@
 # Others
 Route::get("/", function(){return view("layout.app");});
 Route::get("devices/auth", "DevicesController@auth");
+Route::any("/", function($req){
+    dd($req);
+});
 
 # OAuth2
 Route::get("oauth2/discord/{id?}", "OAuth2Controller@discord")->name("oauth2.discord");
