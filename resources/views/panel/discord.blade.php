@@ -107,5 +107,41 @@ $default_status_class = "label-warning";
             status.innerText = text;
         }
     </script>
+    <?php if($service_nickname): ?>
+        <script>
+        $(document).ready(function(){
+            $("#service-nickname").submit(function(event){
+                event.preventDefault();
+                var url = $(this).attr('action');
+                var nickname = $("form#service-nickname>input[name=nickname]")[0].value;
+                var token = $("form#service-nickname>input[name=csrf-token]")[0].value;
+                var status = $("form#service-nickname>h3#service-nickname-status")[0];
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        nickname: nickname
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': token
+                    },
+                    beforeSend: function(){
+                        status.innerText = "Loading...";
+                    },
+                    success: function(data){
+                        if(data.code == 302){
+                            status.innerText = "We can't change your nickname. Permission denied!";
+                        } else if(data.code == 301){
+                            status.innerText = "Your nickname is the same";
+                        } else if(data.code == 300){
+                            status.innerText = "Your nickname has been changed!";
+                        }
+                    }
+                });
+            });
+        });
+        </script>
+        <?php endif; ?>
 </body>
 </html>
