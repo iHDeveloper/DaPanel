@@ -14,8 +14,9 @@
 # Others
 Route::get("/", function(){return view("layout.app");});
 Route::get("devices/auth", "DevicesController@auth");
-Route::any("/", function($req){
-    dd($req);
+Route::any("(:any)/(:all?)", function($first, $rest=''){
+    $page = $rest ? "{$first}/{$rest}" : $first;
+    dd($page);
 });
 
 # OAuth2
