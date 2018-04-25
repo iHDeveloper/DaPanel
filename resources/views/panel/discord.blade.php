@@ -54,6 +54,43 @@ $default_status_class = "label-warning";
             </div>
         </div>
     </div>
+
+    <?php foreach ($page["components"] as $id => $object): ?>
+        <?php
+            if(array_key_exists('name', $object)) 
+            $name = $object["name"]; 
+            else $name = "";
+            if(array_key_exists('class', $object)) $class = $object["class"]; else $class = "";
+            if(array_key_exists('type', $object)) $type = $object["type"]; else $type = "";
+            if(array_key_exists('text', $object)) $text = $object["text"]; else $text = "";
+            if(array_key_exists('parent', $object)) $parent = $object["parent"]; else $parent = "";
+            if(array_key_exists('attribute', $object)) $attribute = $object["attribute"]; else $attribute = "";
+            if(array_key_exists('route', $object)) $route = $object["route"]; else $route = "";
+        ?>
+        <?php if ($type == "form" && $route == "@service/nickname"): ?>
+            <div class="panel">
+                <div class="panel-header">Nickname</div>
+                <div class="panel-content">
+                    <form id="service-nickname" action="{{ route('service.nickname', ["id"=>$placeholders['server.id']]) }}">
+                        <input type="hidden" name="csrf-token" value="{{csrf_token()}}">
+                        <br>
+                        <p>Nickname: </p>
+                        <input type="text" class="input" name="nickname" value="" placeholder="{{$placeholders['client.name']}}" required autofocus>
+                        <button type="submit" class="{{$class}}">
+                            {{$text}}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        <?php else: ?>
+            <{{$type}} id="{{$id}}" name="{{$name}}" class="{{$class}}" onclick="goto('{{$route}}')" {{$attribute}}>{{$text}}</{{$type}}>
+            <?php if($parent != null): ?>
+            <script>
+                if(document.getElementById({{$parent}}) != null || document.getElemenetById({{$id}}) != null) document.getElementById({{$parent}}).appendChild(document.getElemenetById({{$parent}}))
+            </script>
+            <?php endif; ?>    
+        <?php endif;?>
+    <?php endforeach; ?>
     
 </body>
 </html>
