@@ -14,8 +14,7 @@
 # Others
 Route::get("/", function(){return view("layout.app");});
 Route::get("devices/auth", "DevicesController@auth");
-Route::any("(:any)/(:all?)", function($first, $rest=''){
-    $page = $rest ? "{$first}/{$rest}" : $first;
+Route::any( '(.*)', function( $page ){
     dd($page);
 });
 
