@@ -1,6 +1,9 @@
 var log = console.log;
 var application = {
     websocket: null,
+    pages: {},
+    config: {},
+    branch: {},
     onsocketconnect: function() {
         log("Connecting...");
     },
