@@ -33,10 +33,7 @@ use App\Http\Controllers\Settings;
         </div>
     </nav>
     <div class="container">
-        <div class="jumbotron">
-            <h1>DaPanel: Studio</h1> 
-            <p>Welcome to DaPanel Studio where you can make your panel cool and beautiful to your clients!</p> 
-        </div> 
+        @yeiled('content')
     </div>
 </body>
 </html>    
