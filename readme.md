@@ -1,5 +1,5 @@
 # DaPanel
-## By: iHDeveloper
+## By: [@iHDeveloper](https://github.com/iHDeveloper)
 ___
 Project Version: **V0.1 ( PRE-ALPHA )**
 
