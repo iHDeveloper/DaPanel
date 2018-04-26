@@ -35,5 +35,6 @@ use App\Http\Controllers\Settings;
     <div class="container">
         @yeiled('content')
     </div>
+    @yield('footer')
 </body>
 </html>    
