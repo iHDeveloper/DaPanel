@@ -1,4 +1,4 @@
-@layout('layout.studio')
+@extends('layout.studio')
 @section('content')
 <div class="jumbotron">
     <h1>DaPanel: Studio</h1> 
