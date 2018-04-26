@@ -32,7 +32,7 @@ $(document).ready(function() {
             console.log(data);
         };
         application.websocket.onclose = function() {
-            applicationCache.onsocketclose();
+            application.onsocketclose();
         }
     }, 100);
 });
