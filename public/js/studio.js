@@ -28,13 +28,14 @@ $(document).ready(function() {
         application.websocket.onopen = function() {
             application.onsocketopen();
         };
-        application.websocket.onerror = function() {
+        application.websocket.onerror = function(err) {
+            log(err);
             application.onsocketerror();
         }
         application.websocket.onmessage = function(data) {
             console.log(data);
         };
-        application.websocket.onclose = function() {
+        application.websocket.onclose = function(data) {
             application.onsocketclose();
         }
     }, 100);
