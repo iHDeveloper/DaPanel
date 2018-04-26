@@ -17,6 +17,7 @@ class CreateClientOAuthsTable extends Migration
             $table->increments('id');
             $table->macAddress('ip');
             $table->string('clientid');
+            $table->string('type');
             $table->uuid('state');
             $table->uuid('token');
             $table->string('panel_id');
