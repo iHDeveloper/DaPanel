@@ -14,6 +14,10 @@ class OAuth2Controller extends Controller
     public function discord(Request $req){
         $code = $req->input('code');
         $state = $req->input('state');
+        $type = $req->input('type');
+        if($type == null){
+            $type == "client";
+        }
         $id = $req->input('id');
         if($id == null && ($state == null || $code == null)){
             return view('error.panel')->with([
@@ -34,6 +38,7 @@ class OAuth2Controller extends Controller
             $clientoauth->state = $state;
             $clientoauth->ip = request()->ip();
             $clientoauth->clientid = "-1";
+            $clientoauth->type = "client";
             $clientoauth->token = Uuid::generate();
             $clientoauth['panel_id'] = $id;
             $clientoauth->save();
@@ -86,7 +91,11 @@ class OAuth2Controller extends Controller
             if ($client){
                 session(['DISCORD_AUTH_PROFILE_TOKEN' => $clientToken]);
                 $clientoauth->save();
-                return redirect(route('panel.login', ["id" => $id]));
+                if($clientoauth->type == "client"){
+                    return redirect(route('panel.login', ["id" => $id]));
+                } else if($clientoauth->type == "studio"){
+                    return redirect(route('studio.login', ["id"=>$id]));
+                }
             } else {
                 $clientoauth->destroy();
                 return view('error.panel')->with([
