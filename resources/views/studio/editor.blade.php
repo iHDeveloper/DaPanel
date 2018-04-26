@@ -5,3 +5,6 @@
     <p>Welcome to DaPanel Studio where you can make your panel cool and beautiful to your clients!</p> 
 </div> 
 @endsection
+@section('footer')
+<script src="{{asset('js/studio.js')}}"></script>
+@endsection
