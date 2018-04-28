@@ -24,7 +24,7 @@ var application = {
 $(document).ready(function() {
     setTimeout(function() {
         application.onsocketconnect();
-        application.websocket = new WebSocket("ws://dapanel.tk:3020");
+        application.websocket = new WebSocket("ws://localhost:3020");
         application.websocket.onopen = function() {
             application.onsocketopen();
         };
