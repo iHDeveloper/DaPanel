@@ -24,9 +24,11 @@ var application = {
     onbranchsload: function(packet) {
         log("[Loader] Loaded Branch!");
         var branchs = packet.branchs;
+        var selected = packet.selected;
         for (var branch of branchs) {
             log("[Branch] Loaded: " + branch);
         }
+        log("[Branch] Selected: " + selected);
         log("[Loader] Loading Configurations...");
     },
     onconfigload: function(packet) {
