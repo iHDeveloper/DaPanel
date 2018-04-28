@@ -37,7 +37,8 @@ var application = {
         log("[Loader] Loading Pages...");
     },
     onpageadded: function(packet) {
-        log("[Loader] Loaded Page: ");
+        log("[Page] Loaded Page: ");
+        log("[Loader] Complete loading all informations!");
     }
 };
 
@@ -53,7 +54,7 @@ $(document).ready(function() {
             application.onsocketerror();
         }
         application.websocket.onmessage = function(message) {
-            console.log("Receive Message: " + message);
+            console.log(message);
             var packet = JSON.parse(message.data);
             var packetType = packet.t;
             if (packetType == "login") application.onlogin(packet);
