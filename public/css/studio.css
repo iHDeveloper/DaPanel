@@ -27,6 +27,10 @@
     height: 100%;
 }
 
+.studio-editor-li {
+    list-style: none;
+}
+
 .studio-editor {
     width: 75%;
 }
