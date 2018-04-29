@@ -36,7 +36,7 @@
     border-right: 1px solid gray;
     max-height: 300px;
     margin-bottom: 10px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .studio-editor {
