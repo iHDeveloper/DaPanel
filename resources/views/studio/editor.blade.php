@@ -51,21 +51,23 @@
 		</ul>
 	</div>
 	<div class="col-md-7 studio-editor">
-	<h3>.layout</h3>
-	<hr />
+		<h3>.layout</h3>
+		<hr>
 		<div class="form-group">
 			<label for="name" class="control-label col-sm-2">Name: </label>
 			<div class="col-sm-10">
-				<input type="text" name="name" id="name" class="form-control">
+				<input type="text" name="name" id="name" class="form-control" value=".layout">
 			</div>
 		</div>
-		<hr />
+		<br>
+		<hr>
 		<div class="form-group">
 			<label for="type" class="control-label col-sm-2">Type: </label>
 			<div class="col-sm-10">
-				<input type="text" name="type" id="type" class="form-control">
+				<input type="text" name="type" id="type" class="form-control" value="Discord">
 			</div>
 		</div>
+		<br>
 	</div>
 </div>
 @endsection
