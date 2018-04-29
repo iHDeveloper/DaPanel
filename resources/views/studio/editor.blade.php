@@ -53,7 +53,19 @@
 	<div class="col-md-7 studio-editor">
 	<h3>.layout</h3>
 	<hr />
-
+		<div class="form-group">
+			<label for="name" class="form-control">Name: </label>
+			<div class="col-md-6">
+				<input type="text" name="name" id="name" class="form-control">
+			</div>
+		</div>
+		<hr />
+		<div class="form-group">
+			<label for="type" class="form-control">Type: </label>
+			<div class="col-md-6">
+				<input type="text" name="type" id="type" class="form-control">
+			</div>
+		</div>
 	</div>
 </div>
 @endsection
