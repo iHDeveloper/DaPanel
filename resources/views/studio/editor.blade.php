@@ -54,15 +54,15 @@
 	<h3>.layout</h3>
 	<hr />
 		<div class="form-group">
-			<label for="name" class="form-control">Name: </label>
-			<div class="col-md-6">
+			<label for="name" class="control-label col-sm-2">Name: </label>
+			<div class="col-sm-10">
 				<input type="text" name="name" id="name" class="form-control">
 			</div>
 		</div>
 		<hr />
 		<div class="form-group">
-			<label for="type" class="form-control">Type: </label>
-			<div class="col-md-6">
+			<label for="type" class="control-label col-sm-2">Type: </label>
+			<div class="col-sm-10">
 				<input type="text" name="type" id="type" class="form-control">
 			</div>
 		</div>
