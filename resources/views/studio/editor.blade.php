@@ -35,11 +35,9 @@
 		</div>
 		<br>
 		<div class="form-group">
-			<label for="panelID" class="control-label col-sm-2">Panel ID: </label>
-			<div class="col-sm-10">
-				<button type="button" class="btn btn-default">Connect</button>
-			</div>
+			<button type="button" class="btn btn-default" data-dismiss="modal">Connect</button>
 		</div>
+		<br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
