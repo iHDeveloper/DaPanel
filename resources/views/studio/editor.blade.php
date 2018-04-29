@@ -1,9 +1,18 @@
 @extends('layout.studio')
 @section('content')
-<div class="jumbotron">
-    <h1>DaPanel: Studio</h1> 
-    <p>Welcome to DaPanel Studio where you can make your panel cool and beautiful to your clients!</p> 
-</div> 
+<style src="{{asset('css/studio.css')}}"></style>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<select id="branch">
+				<option>"<master>"</option>
+			</select>
+		</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a><span class="label label-success">Connect</span></a></li>
+		</ul>
+	<div>
+</nav>
 @endsection
 @section('footer')
 <script src="{{asset('js/studio.js')}}"></script>
