@@ -33,7 +33,7 @@ use App\Http\Controllers\Settings;
         </div>
     </nav>
     <div class="container">
-        @yeiled('content')
+        @yield('content')
     </div>
     @yield('footer')
 </body>
