@@ -26,6 +26,28 @@
 			<li class="studio-explorer-li"><button class="studio-explorer-button">.branch</button></li>
 			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
 			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
 		</ul>
 	</div>
 	<div class="col-md-7 studio-editor">
