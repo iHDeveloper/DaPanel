@@ -11,10 +11,42 @@
 			</select>
 		</div>
 		<ul class="nav navbar-nav navbar-right studio-center-navbar studio-right-navbar">
-			<li><button>Connect</button></li>
+			<li><button type="button" data-toggle="modal" data-target="#connectModal">Connect</button></li>
 		</ul>
 	<div>
 </nav>
+
+<!-- Connect Modal -->
+<div id="connectModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Conect</h4>
+      </div>
+      <div class="modal-body">
+		<div class="form-group">
+			<label for="panelID" class="control-label col-sm-2">Panel ID: </label>
+			<div class="col-sm-10">
+				<input type="text" name="panelID" id="panelID" class="form-control" placeholder="EX: XXXXXXXXXXX">
+			</div>
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="panelID" class="control-label col-sm-2">Panel ID: </label>
+			<div class="col-sm-10">
+				<button type="button" class="btn btn-default">Connect</button>
+			</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="row studio">
 	<div class="col-md-3 studio-explorer">
