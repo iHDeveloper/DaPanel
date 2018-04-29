@@ -6,7 +6,7 @@
 <nav class="navbar navbar-default navbar-fixed-top studio-navbar">
 	<div class="container-fluid">
 		<div class="navbar-header studio-center-navbar">
-			<select id="branch">
+			<select id="branch" class="studio-branch-list">
 				<option>master</option>
 			</select>
 		</div>
@@ -18,8 +18,8 @@
 
 <div class="row studio">
 	<div class="col-md-3 studio-explorer">
-		<h1>Explorer</h1>
-		<hr />>
+		<h3>Explorer</h3>
+		<hr />
 		<ul class="list-group">
 			<li class="studio-explorer-li"><button class="studio-explorer-button">.layout</button></li>
 			<li class="studio-explorer-li"><button class="studio-explorer-button">.config</button></li>
@@ -29,9 +29,9 @@
 		</ul>
 	</div>
 	<div class="col-md-7 studio-editor">
-	<h1>.layout</h1>
+	<h3>.layout</h3>
 	<hr />
-	
+
 	</div>
 </div>
 @endsection
