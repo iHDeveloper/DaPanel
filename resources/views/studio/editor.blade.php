@@ -7,7 +7,7 @@
 	<div class="container-fluid">
 		<div class="navbar-header studio-center-navbar">
 			<select id="branch">
-				<option><master></option>
+				<option>master</option>
 			</select>
 		</div>
 		<ul class="nav navbar-nav navbar-right studio-center-navbar studio-right-navbar">
@@ -16,17 +16,17 @@
 	<div>
 </nav>
 
-<div class="row">
-	<div class="col-md-4">
+<div class="row studio">
+	<div class="col-md-4 studio-explorer">
 		<ul class="list-group">
-			<li><button>.layout</button></li>
-			<li><button>.config</button></li>
-			<li><button>.branch</button></li>
-			<li><button>index.page</button></li>
-			<li><button>home.route</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">.layout</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">.config</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">.branch</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
+			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
 		</ul>
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-6 studio-editor">
 	</div>
 </div>
 @endsection
