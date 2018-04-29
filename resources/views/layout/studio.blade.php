@@ -12,6 +12,7 @@ use App\Http\Controllers\Settings;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	@yield('header')
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -32,9 +33,7 @@ use App\Http\Controllers\Settings;
             </ul>
         </div>
     </nav>
-    <div class="container">
-        @yield('content')
-    </div>
+    @yield('content')
     @yield('footer')
 </body>
 </html>    
