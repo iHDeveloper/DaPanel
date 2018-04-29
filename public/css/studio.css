@@ -32,7 +32,11 @@
 }
 
 .studio-explorer {
+    -webkit-overflow-scrolling: touch;
     border-right: 1px solid gray;
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow: scroll;
 }
 
 .studio-editor {
