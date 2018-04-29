@@ -1,3 +1,7 @@
+.studio-body {
+    overflow: hidden;
+}
+
 .studio-navbar {
     top: 50px;
 }
