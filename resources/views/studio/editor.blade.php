@@ -1,6 +1,6 @@
 @extends('layout.studio')
 @section('header')
-<style src="{{asset('css/studio.css')}}"></style>
+<link rel="stylesheet" src="{{asset('css/studio.css')}}"></link>
 @endsection
 @section('content')
 <nav class="navbar navbar-default navbar-fixed-top studio-navbar">
