@@ -1,0 +1,15 @@
+.studio-navbar{
+	top: 50px;
+}
+
+.studio-center-navbar{
+	padding-top: 15px;
+}
+
+.studio-right-navbar{
+	padding-right: 15px;
+}
+
+.studio-branch-list{
+	min-width: 250px;
+}
