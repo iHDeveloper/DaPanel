@@ -13,6 +13,14 @@
 		</ul>
 	<div>
 </nav>
+
+<div class="row">
+	<div class="col-md-4">
+		
+	</div>
+	<div class="col-md-6">
+	</div>
+</div>
 @endsection
 @section('footer')
 <script src="{{asset('js/studio.js')}}"></script>
