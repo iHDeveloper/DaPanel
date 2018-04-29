@@ -13,3 +13,30 @@
 .studio-branch-list{
 	min-width: 250px;
 }
+
+.studio {
+	position: absolute;
+    top: 100px;
+    background: lightgray;
+    width: 100%;
+    padding-top: 15px;
+}
+
+.studio-explorer , .studio-editor{
+	height: 100%;
+}
+
+.studio-explorer-li , .studio-explorer-button{
+	width: 100%;
+    background-color: #E94B3C;
+    border: 0;
+}
+
+.studio-explorer-li{
+	margin-bottom: 5px;
+    color: white;
+    font-family: monospace;
+    font-weight: 700;
+    padding: 2px 2px 2px 2px;
+}
+	
