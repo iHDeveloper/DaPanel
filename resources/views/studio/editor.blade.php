@@ -1,6 +1,8 @@
 @extends('layout.studio')
-@section('content')
+@section('header')
 <style src="{{asset('css/studio.css')}}"></style>
+@endsection
+@section('content')
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
