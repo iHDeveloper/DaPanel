@@ -17,7 +17,9 @@
 </nav>
 
 <div class="row studio">
-	<div class="col-md-4 studio-explorer">
+	<div class="col-md-3 studio-explorer">
+		<h1>Explorer</h1>
+		<hr />>
 		<ul class="list-group">
 			<li class="studio-explorer-li"><button class="studio-explorer-button">.layout</button></li>
 			<li class="studio-explorer-li"><button class="studio-explorer-button">.config</button></li>
@@ -26,7 +28,10 @@
 			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
 		</ul>
 	</div>
-	<div class="col-md-6 studio-editor">
+	<div class="col-md-7 studio-editor">
+	<h1>.layout</h1>
+	<hr />
+	
 	</div>
 </div>
 @endsection
