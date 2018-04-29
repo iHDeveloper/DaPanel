@@ -27,8 +27,8 @@
     height: 100%;
 }
 
-.studio-editor-li {
-    list-style: none;
+.studio-explorer {
+    border-right: 1px solid gray;
 }
 
 .studio-editor {
@@ -40,6 +40,7 @@
     width: 100%;
     background-color: #E94B3C;
     border: 0;
+    list-style: none;
 }
 
 .studio-explorer-li {
