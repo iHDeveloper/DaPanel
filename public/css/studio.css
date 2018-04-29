@@ -30,6 +30,7 @@ html {
     background: lightgray;
     width: 100%;
     margin-left: 0;
+    height: 84.7%;
 }
 
 .studio-explorer,
@@ -43,6 +44,7 @@ html {
     max-height: 300px;
     margin-bottom: 10px;
     overflow-y: scroll;
+    min-height: 100%;
 }
 
 .studio-editor {
