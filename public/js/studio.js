@@ -1,4 +1,20 @@
 var log = console.log;
+
+var branchManager = {
+    create: function(name) {
+        var branch = {
+            name: name
+        };
+        application.branch["_" + branch.name] = branch;
+    },
+    select: function(name) {
+        application.branch.selected = name;
+    },
+    get: function(name) {
+        return application.branch["_" + name];
+    }
+};
+
 var application = {
     websocket: null,
     pages: {},
