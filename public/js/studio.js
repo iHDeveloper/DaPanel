@@ -1,5 +1,13 @@
 console.socket = function(message) {
-    console.debug("DaPanel:Socket", message);
+    console.debug("DaPanel:Studio-Socket", message);
+}
+
+console.studio = function(message) {
+    console.debug("DaPanel:Studio", message);
+}
+
+console.loader = function(message) {
+    console.debug("DaPanel:Studio-Loader", message);
 }
 
 var branchManager = {
@@ -23,24 +31,17 @@ var application = {
     config: {},
     branch: {},
     onsocketconnect: function() {
-        log("Connecting...");
+        console.studio("Loading...");
     },
-    onsocketopen: function() {
-        log("Connected!");
-    },
-    onsocketerror: function() {
-        log("Failed to connect!");
-    },
-    onsocketclose: function() {
-        log("Disconnected!");
-    },
+    onsocketopen: function() {},
+    onsocketerror: function() {},
+    onsocketclose: function() {},
     oninput: function() {},
     onping: function() {},
     onlogin: function(packet) {
-        log("[Loader] Loading Branchs...");
+        console.loader("Loading Branchs...");
     },
     onbranchsload: function(packet) {
-        log("[Loader] Loaded Branch!");
         var branchs = packet.branchs;
         var selected = packet.selected;
         for (var branch of branchs) {
@@ -49,18 +50,17 @@ var application = {
         }
         branchManager.select(name);
         log("[Branch] Selected: " + selected);
-        log("[Loader] Loading Configurations...");
+        console.loader("Loading Configurations...");
     },
     onconfigload: function(packet) {
-        log("[Loader] Loaded Configurations");
         for (var key in packet.config) {
             log("[Configurations] Loaded " + key);
         }
-        log("[Loader] Loading Pages...");
+        console.loader("Loading Pages...");
     },
     onpageadded: function(packet) {
         log("[Page] Loaded Page: ");
-        log("[Loader] Complete loading all informations!");
+        console.loader("Successfully! Loaded everything");
     }
 };
 
