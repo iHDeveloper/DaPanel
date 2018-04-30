@@ -10,6 +10,10 @@ console.loader = function(message) {
     console.debug("DaPanel:Studio-Loader", message);
 }
 
+console.branch = function(message) {
+    console.debug("DaPanel:Branch", message);
+}
+
 var branchManager = {
     create: function(name) {
         var branch = {
@@ -46,10 +50,10 @@ var application = {
         var selected = packet.selected;
         for (var branch of branchs) {
             branchManager.create(branch);
-            log("[Branch] Loaded: " + branch);
+            console.branch("Loaded: " + branch);
         }
         branchManager.select(name);
-        log("[Branch] Selected: " + selected);
+        console.branch("Selected: " + selected);
         console.loader("Loading Configurations...");
     },
     onconfigload: function(packet) {
