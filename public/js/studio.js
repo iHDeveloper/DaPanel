@@ -1,4 +1,6 @@
-var log = console.log;
+console.socket = function(message) {
+    console.debug("DaPanel:Socket", message);
+}
 
 var branchManager = {
     create: function(name) {
@@ -42,8 +44,10 @@ var application = {
         var branchs = packet.branchs;
         var selected = packet.selected;
         for (var branch of branchs) {
+            branchManager.create(branch);
             log("[Branch] Loaded: " + branch);
         }
+        branchManager.select(name);
         log("[Branch] Selected: " + selected);
         log("[Loader] Loading Configurations...");
     },
@@ -65,14 +69,16 @@ $(document).ready(function() {
         application.onsocketconnect();
         application.websocket = new WebSocket("ws://dapanel.tk:3020");
         application.websocket.onopen = function() {
+            console.socket("Connected!");
             application.onsocketopen();
         };
         application.websocket.onerror = function(err) {
-            log(err);
+            console.socket("Found error!");
+            console.socket(err);
             application.onsocketerror();
         }
         application.websocket.onmessage = function(message) {
-            console.log(message);
+            console.socket("Message: " + message);
             var packet = JSON.parse(message.data);
             var packetType = packet.t;
             if (packetType == "login") application.onlogin(packet);
@@ -81,6 +87,7 @@ $(document).ready(function() {
             if (packetType == "pageinfo") application.onpageadded(packet);
         };
         application.websocket.onclose = function(data) {
+            console.socket("Disconnected!");
             application.onsocketclose();
         }
     }, 100);
