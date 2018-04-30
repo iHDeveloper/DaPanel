@@ -37,6 +37,17 @@ var branchManager = {
     }
 };
 
+var pageManager = {
+    create: function(name, title, text) {
+        var page = {
+            name: name,
+            title: title,
+            text: text
+        };
+        application.pages[page.name] = page;
+    }
+};
+
 var application = {
     websocket: null,
     pages: {},
@@ -71,6 +82,10 @@ var application = {
         console.loader("Loading Pages...");
     },
     onpageadded: function(packet) {
+        var name = (packet.name == null) ? null : packet.name;
+        var title = (packet.title == null) ? null : packet.title;
+        var text = (packet.text == null) ? null : packet.text;
+        pageManager.create(name, title, text);
         console.page("Loaded Page: " + packet.name);
         console.loader("Successfully! Loaded everything");
     }
