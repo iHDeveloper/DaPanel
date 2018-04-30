@@ -14,6 +14,10 @@ console.branch = function(message) {
     console.debug("DaPanel:Branch", message);
 }
 
+console.config = function(message) {
+    console.debug("DaPanel:Configuration", message);
+}
+
 var branchManager = {
     create: function(name) {
         var branch = {
@@ -58,7 +62,7 @@ var application = {
     },
     onconfigload: function(packet) {
         for (var key in packet.config) {
-            log("[Configurations] Loaded " + key);
+            console.config("Loaded " + key);
         }
         console.loader("Loading Pages...");
     },
