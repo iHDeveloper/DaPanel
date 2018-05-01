@@ -22,6 +22,10 @@ console.page = function(message, arg1) {
     console.debug("DaPanel:Page", message, arg1);
 }
 
+console.ui = function(message, arg1) {
+    console.debug("DaPanel:UI", message, arg1);
+}
+
 var objectManager = {
     explorer: document.getElementById("explorer"),
 };
