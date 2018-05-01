@@ -53,7 +53,7 @@ var UIManager = {
         li.appendChild(button);
         file.li = li;
         file.button = button;
-        files[file.id] = file;
+        UIManager.files[file.id] = file;
         explorer.appendChild(file.li);
         console.ui("Created File: " + file.id, file);
         return file.id;
