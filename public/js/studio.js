@@ -31,8 +31,30 @@ var objectManager = {
 };
 
 var UIManager = {
-    addFile: function(name) {
+    files: {
+        lastid: 0,
+    },
+    createFile: function(name) {
         var explorer = objectManager.explorer;
+        if (explorer != null) {
+            console.error("Explorer: ", explorer);
+            console.ui("Failed to create file!");
+            return;
+        }
+        var lastid = UIManager.files.lastid;
+        lastid = lastid + 1;
+        UIManager.files.lastid = lastid;
+        var file = { id: lastid, name: name, li: null, button: null };
+        var li = document.createElement("li");
+        var button = document.createElement("button");
+        li.classList.add("studio-explorer-li");
+        button.classList.add("studio-explorer-button");
+        button.innerText = name;
+        li.appendChild(button);
+        file.li = li;
+        file.button = button;
+        files[file.id] = file;
+        console.ui("Created File: " + file.id, file);
     },
 };
 
