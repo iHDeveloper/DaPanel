@@ -23,7 +23,7 @@ console.page = function(message, arg1) {
 }
 
 console.ui = function(message, arg1) {
-    console.debug("DaPanel:UI", message, arg1);
+    console.debug("DaPanel:Studio-UI", message, arg1);
 }
 
 var objectManager = {
