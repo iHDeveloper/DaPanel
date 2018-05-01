@@ -56,6 +56,7 @@ var UIManager = {
         files[file.id] = file;
         explorer.appendChild(file.li);
         console.ui("Created File: " + file.id, file);
+        return file.id;
     },
 };
 
