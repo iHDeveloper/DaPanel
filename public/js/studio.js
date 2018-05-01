@@ -80,8 +80,11 @@ var pageManager = {
         var page = {
             name: name,
             title: title,
-            text: text
+            text: text,
+            fileid: -1,
         };
+        fileid = UIManager.createFile(name + ".panel");
+        page.fileid = fileid;
         application.pages[page.name] = page;
     }
 };
