@@ -51,34 +51,8 @@
 	<div class="col-md-3 studio-explorer">
 		<h3>Explorer</h3>
 		<hr />
-		<ul class="list-group">
-			<li class="studio-explorer-li"><button class="studio-explorer-button">.layout</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">.config</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">.branch</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">index.page</button></li>
-			<li class="studio-explorer-li"><button class="studio-explorer-button">home.route</button></li>
+		<ul id="explorer" class="list-group">
+			<li class="studio-explorer-li"><button class="studio-explorer-button">.test</button></li>
 		</ul>
 	</div>
 	<div class="col-md-7 studio-editor">
