@@ -36,7 +36,7 @@ var UIManager = {
     },
     createFile: function(name) {
         var explorer = objectManager.explorer;
-        if (explorer != null) {
+        if (explorer == null) {
             console.error("Explorer: ", explorer);
             console.ui("Failed to create file!");
             return;
