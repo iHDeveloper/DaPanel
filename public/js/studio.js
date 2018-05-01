@@ -116,7 +116,9 @@ var application = {
     onconfigload: function(packet) {
         for (var key in packet.config) {
             console.config("Loaded " + key);
+            application.config[key] = packet.config[key];
         }
+        UIManager.createFile(".config");
         console.loader("Loading Pages...");
     },
     onpageadded: function(packet) {
