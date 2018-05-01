@@ -22,6 +22,10 @@ console.page = function(message, arg1) {
     console.debug("DaPanel:Page", message, arg1);
 }
 
+var objectManager = {
+    explorer: document.getElementById("explorer"),
+};
+
 var branchManager = {
     create: function(name) {
         var branch = {
