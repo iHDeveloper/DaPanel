@@ -26,6 +26,12 @@ var objectManager = {
     explorer: document.getElementById("explorer"),
 };
 
+var UIManager = {
+    addFile: function(name) {
+        var explorer = objectManager.explorer;
+    },
+};
+
 var branchManager = {
     create: function(name) {
         var branch = {
