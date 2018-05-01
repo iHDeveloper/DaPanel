@@ -1,25 +1,25 @@
-console.socket = function(message) {
-    console.debug("DaPanel:Studio-Socket", message);
+console.socket = function(message, arg1) {
+    console.debug("DaPanel:Studio-Socket", message, arg1);
 }
 
-console.studio = function(message) {
-    console.debug("DaPanel:Studio", message);
+console.studio = function(message, arg1) {
+    console.debug("DaPanel:Studio", message, arg1);
 }
 
-console.loader = function(message) {
-    console.debug("DaPanel:Studio-Loader", message);
+console.loader = function(message, arg1) {
+    console.debug("DaPanel:Studio-Loader", message, arg1);
 }
 
-console.branch = function(message) {
-    console.debug("DaPanel:Branch", message);
+console.branch = function(message, arg1) {
+    console.debug("DaPanel:Branch", message, arg1);
 }
 
-console.config = function(message) {
-    console.debug("DaPanel:Configuration", message);
+console.config = function(message, arg1) {
+    console.debug("DaPanel:Configuration", message, arg1);
 }
 
-console.page = function(message) {
-    console.debug("DaPanel:Page", message);
+console.page = function(message, arg1) {
+    console.debug("DaPanel:Page", message, arg1);
 }
 
 var branchManager = {
@@ -100,12 +100,11 @@ $(document).ready(function() {
             application.onsocketopen();
         };
         application.websocket.onerror = function(err) {
-            console.socket("Found error!");
-            console.socket(err);
+            console.socket("Error: ", err);
             application.onsocketerror();
         }
         application.websocket.onmessage = function(message) {
-            console.socket("Message: " + message);
+            console.socket("Message: ", message);
             var packet = JSON.parse(message.data);
             var packetType = packet.t;
             if (packetType == "login") application.onlogin(packet);
