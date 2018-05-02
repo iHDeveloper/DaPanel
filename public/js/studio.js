@@ -50,7 +50,7 @@ var UIManager = {
     files: {
         lastid: 0,
     },
-    createFile: function(name) {
+    createFile: function(name, onclick) {
         var explorer = objectManager.explorer;
         if (explorer == null) {
             console.error("Explorer: ", explorer);
@@ -66,6 +66,7 @@ var UIManager = {
         li.classList.add("studio-explorer-li");
         button.classList.add("studio-explorer-button");
         button.innerText = name;
+        button.onclick = onclick;
         li.appendChild(button);
         file.li = li;
         file.button = button;
