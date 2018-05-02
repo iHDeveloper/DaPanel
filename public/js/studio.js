@@ -41,6 +41,9 @@ var TerminalManager = {
 
 var objectManager = {
     explorer: document.getElementById("explorer"),
+    editor: {
+        filename: document.getElementById("filename"),
+    },
 };
 
 var UIManager = {
