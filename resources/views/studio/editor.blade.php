@@ -66,11 +66,12 @@
 				</div>
 				<br>
 				<div class="form-group">
-					<label for="command" class="control-label col-sm-2">Label: </label>
-					<div class="col-sm-10">
+					<label for="command" class="control-label col-sm-1">Label: </label>
+					<div class="col-sm-11">
 						<input type="text" name="command" id="command" class="form-control" placeholder="Ex: Maintenance -info" require autoFocus>
 					</div>
 				</div>
+				<br>
 				<div class="form-group">
 					<button type="button" class="btn btn-default form-control">Execute</button>
 				</div>
