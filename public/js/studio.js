@@ -58,7 +58,7 @@ var UIManager = {
         lastid: 0,
     },
     setFileName: function(name) {
-        editor.filename.innerText = name;
+        objectManager.editor.filename.innerText = name;
     },
     resetWindows: function() {
         for (const element of objectManager.editors.childNodes) {
