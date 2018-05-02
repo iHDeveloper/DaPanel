@@ -30,12 +30,17 @@ console.terminal = function(message, arg1) {
     console.debug("DaPanel:Studio-Terminal", message, arg1);
 }
 
+function PacketMaker(type) {
+    return { t: type };
+}
+
 var TerminalManager = {
     execute: function(execute) {
-
-    },
-    output: function(output) {
-
+        setTimeout(function() {
+            var packet = PacketMaker("terminalexecute");
+            packet.execute = execute;
+            application.websocket.send(JSON.stringify(packet));
+        }, 1);
     }
 };
 
@@ -43,12 +48,29 @@ var objectManager = {
     explorer: document.getElementById("explorer"),
     editor: {
         filename: document.getElementById("filename"),
+        console: document.getElementById("console"),
     },
+    editors: document.getElementById("editors"),
 };
 
 var UIManager = {
     files: {
         lastid: 0,
+    },
+    setFileName: function(name) {
+        editor.filename.innerText = name;
+    },
+    resetWindows: function() {
+        for (const element of objectManager.editors.childNodes) {
+            if (element.nodeName != "#text") {
+                element.style.display = "none";
+            }
+        }
+    },
+    showWindow: function(name) {
+        var t = objectManager.editor[name];
+        if (t == null) return;
+        t.style.display = "block";
     },
     createFile: function(name, onclick) {
         var explorer = objectManager.explorer;
@@ -62,6 +84,7 @@ var UIManager = {
         UIManager.files.lastid = lastid;
         var file = { id: lastid, name: name, li: null, button: null };
         var li = document.createElement("li");
+        li.id = "file-" + lastid;
         var button = document.createElement("button");
         li.classList.add("studio-explorer-li");
         button.classList.add("studio-explorer-button");
@@ -111,6 +134,19 @@ var application = {
     pages: {},
     config: {},
     branch: {},
+    onload: function() {
+        var c = objectManager.editor.console;
+        object.parentNode.childNodes[7].childNodes[1].onclick = function() {
+            var input = object.parentNode.childNodes[5].childNodes[3].childNodes[1];
+            var message = input.value;
+            input.value = "";
+            console.terminal("Execute: " + message);
+            var p = document.createElement("p");
+            p.innerText = "#> " + message;
+            c.appendChild(p);
+            TerminalManager.execute(message);
+        };
+    },
     onsocketconnect: function() {
         console.studio("Loading...");
     },
@@ -139,6 +175,12 @@ var application = {
             application.config[key] = packet.config[key];
         }
         UIManager.createFile(".config");
+        console.terminal("Console file created successfully!");
+        UIManager.createFile(".console", function() {
+            UIManager.resetWindows();
+            UIManager.showWindow("Console");
+            UIManager.setFileName("Console ( Terminal )");
+        });
         console.loader("Loading Pages...");
     },
     onpageadded: function(packet) {
@@ -147,11 +189,20 @@ var application = {
         var text = (packet.text == null) ? null : packet.text;
         pageManager.create(name, title, text);
         console.page("Loaded Page: " + packet.name);
-        console.loader("Successfully! Loaded everything");
+    },
+    onterminaloutput: function(packet) {
+        var message = packet.message;
+        if (message == null) return;
+        console.terminal("Output: " + message);
+        var c = objectManager.editor.console;
+        var p = document.createElement("p");
+        p.innerText = "> " + message;
+        c.appendChild(p);
     }
 };
 
 $(document).ready(function() {
+    application.onload();
     setTimeout(function() {
         application.onsocketconnect();
         application.websocket = new WebSocket("ws://dapanel.tk:3020");
@@ -171,6 +222,7 @@ $(document).ready(function() {
             if (packetType == "branchlist") application.onbranchsload(packet);
             if (packetType == "configlist") application.onconfigload(packet);
             if (packetType == "pageinfo") application.onpageadded(packet);
+            if (packetType == "terminaloutput") application.onterminaloutput(packet);
         };
         application.websocket.onclose = function(data) {
             console.socket("Disconnected!");
