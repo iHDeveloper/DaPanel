@@ -136,8 +136,8 @@ var application = {
     branch: {},
     onload: function() {
         var c = objectManager.editor.console;
-        object.parentNode.childNodes[7].childNodes[1].onclick = function() {
-            var input = object.parentNode.childNodes[5].childNodes[3].childNodes[1];
+        c.parentNode.childNodes[7].childNodes[1].onclick = function() {
+            var input = c.parentNode.childNodes[5].childNodes[3].childNodes[1];
             var message = input.value;
             input.value = "";
             console.terminal("Execute: " + message);
