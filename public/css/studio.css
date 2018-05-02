@@ -8,6 +8,10 @@ body {
     overflow: hidden;
 }
 
+.hidden {
+    display: none;
+}
+
 .studio-navbar {
     top: 50px;
 }
@@ -60,6 +64,7 @@ body {
     font-weight: 100;
     font-size: 15px;
     overflow-y: auto;
+    max-height: 250px;
 }
 
 .studio-explorer-li,
