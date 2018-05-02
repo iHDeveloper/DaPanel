@@ -26,6 +26,19 @@ console.ui = function(message, arg1) {
     console.debug("DaPanel:Studio-UI", message, arg1);
 }
 
+console.terminal = function(message, arg1) {
+    console.debug("DaPanel:Studio-Terminal", message, arg1);
+}
+
+var TerminalManager = {
+    execute: function(execute) {
+
+    },
+    output: function(output) {
+
+    }
+};
+
 var objectManager = {
     explorer: document.getElementById("explorer"),
 };
