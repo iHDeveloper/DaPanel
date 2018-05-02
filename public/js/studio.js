@@ -178,7 +178,7 @@ var application = {
         console.terminal("Console file created successfully!");
         UIManager.createFile(".console", function() {
             UIManager.resetWindows();
-            UIManager.showWindow("Console");
+            UIManager.showWindow("console");
             UIManager.setFileName("Console ( Terminal )");
         });
         console.loader("Loading Pages...");
