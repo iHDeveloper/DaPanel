@@ -56,11 +56,11 @@
 		</ul>
 	</div>
 	<div class="col-md-7 studio-editor">
-		<h3 id="filename">Dashboard</h3>
+		<h3 id="filename"></h3>
 		<hr>
 		<div id="editors">
-			<div id="studio-editor-dashboard"></div>
-			<div id="studio-editor-console">
+			<div id="studio-editor-dashboard" class="hidden"></div>
+			<div id="studio-editor-console" class="hidden">
 				<div id="console" class="studio-editor-console">
 					<p>> [Terminal] Welcome to the test of the conosle</p>
 				</div>
