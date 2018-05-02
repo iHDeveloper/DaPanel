@@ -56,23 +56,26 @@
 		</ul>
 	</div>
 	<div class="col-md-7 studio-editor">
-		<h3>.layout</h3>
+		<h3 id="filename">Dashboard</h3>
 		<hr>
-		<div class="form-group">
-			<label for="name" class="control-label col-sm-2">Name: </label>
-			<div class="col-sm-10">
-				<input type="text" name="name" id="name" class="form-control" value=".layout">
+		<div id="editors">
+			<div id="studio-editor-dashboard"></div>
+			<div id="studio-editor-console">
+				<div id="console" class="console">
+					<p>> [Terminal] Welcome to the test of the conosle</p>
+				</div>
+				<br>
+				<div class="form-group">
+					<label for="command" class="control-label col-sm-2">Label: </label>
+					<div class="col-sm-10">
+						<input type="text" name="command" id="command" class="form-control" placeholder="Ex: Maintenance -info" require autoFocus>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="button" class="btn btn-default form-control">Execute</button>
+				</div>
 			</div>
 		</div>
-		<br>
-		<hr>
-		<div class="form-group">
-			<label for="type" class="control-label col-sm-2">Type: </label>
-			<div class="col-sm-10">
-				<input type="text" name="type" id="type" class="form-control" value="Discord">
-			</div>
-		</div>
-		<br>
 	</div>
 </div>
 @endsection
