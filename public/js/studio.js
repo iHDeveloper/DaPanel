@@ -48,7 +48,7 @@ var objectManager = {
     explorer: document.getElementById("explorer"),
     editor: {
         filename: document.getElementById("filename"),
-        console: document.getElementById("console"),
+        console: document.getElementById("studio-editor-console"),
     },
     editors: document.getElementById("editors"),
 };
@@ -63,14 +63,14 @@ var UIManager = {
     resetWindows: function() {
         for (const element of objectManager.editors.childNodes) {
             if (element.nodeName != "#text") {
-                element.style.display = "none";
+                $(element).hide();
             }
         }
     },
     showWindow: function(name) {
         var t = objectManager.editor[name];
         if (t == null) return;
-        t.style.display = "block";
+        $(t).show();
     },
     createFile: function(name, onclick) {
         var explorer = objectManager.explorer;
@@ -135,6 +135,7 @@ var application = {
     config: {},
     branch: {},
     onload: function() {
+        UIManager.resetWindows();
         var c = objectManager.editor.console;
         c.parentNode.childNodes[9].childNodes[1].onclick = function() {
             var input = c.parentNode.childNodes[5].childNodes[3].childNodes[1];
