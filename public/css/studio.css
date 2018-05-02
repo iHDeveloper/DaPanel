@@ -50,6 +50,18 @@ body {
     width: 75%;
 }
 
+.studio-editor-console {
+    padding: 5px 5px;
+    background-color: #838487;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    font-family: monospace;
+    font-weight: 100;
+    font-size: 15px;
+    overflow-y: auto;
+}
+
 .studio-explorer-li,
 .studio-explorer-button {
     width: 100%;
