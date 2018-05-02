@@ -136,7 +136,7 @@ var application = {
     branch: {},
     onload: function() {
         var c = objectManager.editor.console;
-        c.parentNode.childNodes[7].childNodes[1].onclick = function() {
+        c.parentNode.childNodes[9].childNodes[1].onclick = function() {
             var input = c.parentNode.childNodes[5].childNodes[3].childNodes[1];
             var message = input.value;
             input.value = "";
