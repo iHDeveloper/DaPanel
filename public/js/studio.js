@@ -41,6 +41,14 @@ var TerminalManager = {
             packet.execute = execute;
             application.websocket.send(JSON.stringify(packet));
         }, 1);
+    },
+    output: function(message) {
+        setTimeout(function() {
+            var c = objectManager.editor.terminal;
+            var p = document.createElement("p");
+            p.innerText = "> " + message;
+            c.appendChild(p);
+        }, 1);
     }
 };
 
@@ -49,6 +57,7 @@ var objectManager = {
     editor: {
         filename: document.getElementById("filename"),
         console: document.getElementById("studio-editor-console"),
+        terminal: document.getElementById("console"),
     },
     editors: document.getElementById("editors"),
 };
@@ -137,8 +146,8 @@ var application = {
     onload: function() {
         UIManager.resetWindows();
         var c = objectManager.editor.console;
-        c.parentNode.childNodes[9].childNodes[1].onclick = function() {
-            var input = c.parentNode.childNodes[5].childNodes[3].childNodes[1];
+        $(c).find("button[type=button]")[0].onclick = function() {
+            var input = $(c).find("input[name=command]")[0];
             var message = input.value;
             input.value = "";
             console.terminal("Execute: " + message);
