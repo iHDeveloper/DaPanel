@@ -43,13 +43,11 @@ var TerminalManager = {
         }, 1);
     },
     output: function(message) {
-        setTimeout(function() {
-            var c = objectManager.editor.terminal;
-            var p = document.createElement("p");
-            p.innerText = "@> " + message;
-            c.scrollTop = c.scrollHeight;
-            c.appendChild(p);
-        }, 1);
+        var c = objectManager.editor.terminal;
+        var p = document.createElement("p");
+        p.innerText = "@> " + message;
+        c.scrollTop = c.scrollHeight;
+        c.appendChild(p);
     }
 };
 
