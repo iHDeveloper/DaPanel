@@ -153,7 +153,7 @@ var application = {
             console.terminal("Execute: " + message);
             var p = document.createElement("p");
             p.innerText = "#> " + message;
-            c.appendChild(p);
+            objectManager.editor.terminal.appendChild(p);
             TerminalManager.execute(message);
         };
     },
