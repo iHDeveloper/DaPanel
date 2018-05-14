@@ -46,7 +46,8 @@ var TerminalManager = {
         setTimeout(function() {
             var c = objectManager.editor.terminal;
             var p = document.createElement("p");
-            p.innerText = "> " + message;
+            p.innerText = "@> " + message;
+            c.scrollTop = c.scrollHeight;
             c.appendChild(p);
         }, 1);
     }
@@ -153,9 +154,27 @@ var application = {
             console.terminal("Execute: " + message);
             var p = document.createElement("p");
             p.innerText = "#> " + message;
-            objectManager.editor.terminal.appendChild(p);
+            var t = objectManager.editor.terminal;
+            t.appendChild(p);
+            t.scrollTop = t.scrollHeight;
             TerminalManager.execute(message);
         };
+        $(c).find("input[name=command]").keypress(function(e) {
+            var key = e.which;
+            if (key == 13) {
+                var input = $(c).find("input[name=command]")[0];
+                var message = input.value;
+                input.value = "";
+                console.terminal("Execute: " + message);
+                var p = document.createElement("p");
+                p.innerText = "#> " + message;
+                var t = objectManager.editor.terminal;
+                t.appendChild(p);
+                t.scrollTop = t.scrollHeight;
+                TerminalManager.execute(message);
+                return false;
+            }
+        });
     },
     onsocketconnect: function() {
         console.studio("Loading...");
