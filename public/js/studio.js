@@ -223,10 +223,7 @@ var application = {
         var message = packet.message;
         if (message == null) return;
         console.terminal("Output: " + message);
-        var c = objectManager.editor.terminal;
-        var p = document.createElement("p");
-        p.innerText = "> " + message;
-        c.appendChild(p);
+        TerminalManager.output(message);
     }
 };
 
