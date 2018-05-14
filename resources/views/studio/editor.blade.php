@@ -62,7 +62,6 @@
 			<div id="studio-editor-dashboard"></div>
 			<div id="studio-editor-console">
 				<div id="console" class="studio-editor-console">
-					<p>> [Terminal] Welcome to the test of the conosle</p>
 				</div>
 				<br>
 				<div class="form-group">
