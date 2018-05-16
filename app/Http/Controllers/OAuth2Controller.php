@@ -29,7 +29,7 @@ class OAuth2Controller extends Controller
             if($oauthToken == null) $oauthToken == new ClientOAuth;
             else if($oauthToken->count() > 0) $oauthToken = $oauthToken->get()[0];
             else $oauthToken = null;
-            if($oauthToken != null && $oauthToken["client_id"] != "-1"){
+            if($oauthToken != null && $oauthToken["client_id"] != "-1" && $oauthToken->ip == $req->ip()){
                 $accessToken = $oauthToken["access_token"];
                 $refreshToken = $oauthToken["refresh_token"];
                 if($accessToken != "null"){
@@ -74,13 +74,17 @@ class OAuth2Controller extends Controller
             $state = Uuid::generate();
             $url = $provider->getAuthorizationUrl() . '&state=' . $state;
             if($oauthToken == null) $clientoauth = new ClientOAuth;
-            else $clientoauth = $oauthToken;
+            else {
+                $clientoauth = $oauthToken;
+                if($clientoauth->ip != $req->ip()) $clientoauth = new ClientOAuth;
+            }
             $clientoauth->state = $state;
             $clientoauth["access_token"] = "null";
             $clientoauth["refresh_token"] = "null";
             $clientoauth["client_id"] = "-1";
             $clientoauth->type = "client";
             $clientoauth->code = "null";
+            $clientoauth->ip = $req->ip();
             $clientoauth['panel_id'] = $id;
             $clientoauth->save();
             session([Settings::discord_session() => $clientoauth->id]);
