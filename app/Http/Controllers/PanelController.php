@@ -22,7 +22,7 @@ class PanelController extends Controller
             if($token != null){
                 $authProfile = TokenManager::auth($req, $token, $id);
                 if($authProfile != null){
-                    return redirect(route('panel.login', ['id'=>$id]));
+                    return redirect(route('panel.login', ['id'=>$id]) . '/?token=' . $token);
                 }
             }
             return redirect(route("oauth2.discord") . '/?id=' . $id);
@@ -60,7 +60,7 @@ class PanelController extends Controller
                 "message" => $reason
             ]);
         }
-        return redirect(route("panel.open", ["id"=>$id]) . '/?token=' . $clientToken);
+        return redirect(route("panel.open", ["id"=>$id]) . '/?token=' . $token);
     }
 
     public function open(Request $req, $id){
@@ -83,7 +83,7 @@ class PanelController extends Controller
             if($type == "route"){
                 $route = "panel.route";
             }
-            return redirect(route($route, ["id"=>$id,($type)=>$value]) . '/?token=' . $clientToken);
+            return redirect(route($route, ["id"=>$id,($type)=>$value]) . '/?token=' . $token);
         } catch (\Exception $ex){
             return view('error.panel')->with([
                 "code" => 500,
