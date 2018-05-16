@@ -89,7 +89,7 @@ class OAuth2Controller extends Controller
             $realstate = explode(',', $state);
             $realstate = $realstate[1];
             $clientoauth = $oauthToken;
-            if($clientoauth->state == $realstate){
+            if($clientoauth->state != $realstate){
                 return view('error.panel')->with([
                     "code" => 203,
                     "title" => "OAuth2 Error [0x0B]",
