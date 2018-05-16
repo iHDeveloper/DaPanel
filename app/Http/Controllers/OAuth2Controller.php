@@ -73,9 +73,20 @@ class OAuth2Controller extends Controller
                 "message" => "Something went wrong in the state in the oauth2"
             ]);
         }
-        $token = $provider->getAccessToken('authorization_code', [
-            'code' => $code,
-        ]);
+        try{
+            $token = $provider->getAccessToken('authorization_code', [
+                'code' => $code,
+            ]);
+        } catch (\Exception $ex){
+            $w = ClientOAuth::where('ip', $req->ip());
+            if($w->count() > 0){
+                foreach ($w->get() as $trash) {
+                    $trash->delete();
+                }
+            }
+            $w->delete();
+            return redirect(route('panel.find', ["id" => $id]));
+        }
         $user = $provider->getResourceOwner($token);
         $clientoauth->clientid = $user->id;
         $req = new Client([
