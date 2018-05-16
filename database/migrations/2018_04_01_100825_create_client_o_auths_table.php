@@ -15,7 +15,7 @@ class CreateClientOAuthsTable extends Migration
     {
         Schema::create('client_o_auths', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('client_id');
+            $table->string('client_id');
             $table->string('access_token');
             $table->string('refresh_token');
             $table->string('state');
