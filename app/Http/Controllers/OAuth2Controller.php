@@ -24,7 +24,8 @@ class OAuth2Controller extends Controller
         // Check if OAuth Token found
         if($oauthToken != null){
             $oauthToken = ClientOAuth::find($oauthToken);
-            if($oauthToken->count() > 0) $oauthToken = $oauthToken->get()[0];
+            if($oauthToken == null) $oauthToken == new ClientOAuth;
+            else if($oauthToken->count() > 0) $oauthToken = $oauthToken->get()[0];
             else $oauthToken = null;
             if($oauthToken != null){
                 $accessToken = $oauthToken["access_token"];
