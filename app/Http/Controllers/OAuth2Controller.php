@@ -38,9 +38,10 @@ class OAuth2Controller extends Controller
                         $accessToken = $provider->getAccessToken('refresh_token', [
                             'refresh_token' => $refreshToken,
                         ]);
-                        $oauthToken["access_token"] = $accessToken;
-                        $oauthToken->save();
+                        $oauthToken["access_token"] = $accessToken->getToken();
                         $user = $provider->getResourceOwner($accessToken);
+                        $oauthToken["client_id"] = $user->id;
+                        $oauthToken->save();
                     }
                     $panel = $oauthToken["panel_id"];
                     $userid = $user->id;
@@ -110,7 +111,6 @@ class OAuth2Controller extends Controller
         $accessToken = $tokenData->getToken();
         $refreshToken = $tokenData->getRefreshToken();
         $user = $provider->getResourceOwner($tokenData);
-        dd(array("Provider"=>$provider,'User'=>$user,"Token Data"=>$tokenData));
         $clientoauth["client_id"] = $user->id;
         $clientoauth["access_token"] = $accessToken;
         $clientoauth["refresh_token"] = $refreshToken;
