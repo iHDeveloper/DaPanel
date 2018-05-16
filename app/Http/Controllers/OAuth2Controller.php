@@ -25,7 +25,7 @@ class OAuth2Controller extends Controller
         $oauthToken = session(Settings::discord_session());
         // Check if OAuth Token found
         if($oauthToken != null){
-            $oauthToken = ClientOAuth::where($oauthToken);
+            $oauthToken = ClientOAuth::where('id', $oauthToken);
             if($oauthToken == null) $oauthToken == new ClientOAuth;
             else if($oauthToken->count() > 0) $oauthToken = $oauthToken->get()[0];
             else $oauthToken = null;
