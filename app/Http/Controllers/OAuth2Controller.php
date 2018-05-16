@@ -79,7 +79,7 @@ class OAuth2Controller extends Controller
         if($state == null){
             return view('error.panel')->with([
                 "code" => 203,
-                "title" => "OAuth2 Error",
+                "title" => "OAuth2 Error [0x0A]",
                 "message" => "Something went wrong in the state in the oauth2"
             ]);
         }
@@ -92,14 +92,14 @@ class OAuth2Controller extends Controller
             if($clientoauth->state == $realstate){
                 return view('error.panel')->with([
                     "code" => 203,
-                    "title" => "OAuth2 Error",
+                    "title" => "OAuth2 Error [0x0B]",
                     "message" => "Something went wrong in the state in the oauth2"
                 ]);
             } 
         } else {
             return view('error.panel')->with([
                 "code" => 203,
-                "title" => "OAuth2 Error",
+                "title" => "OAuth2 Error [0x0C]",
                 "message" => "Something went wrong in the state in the oauth2"
             ]);
         }
