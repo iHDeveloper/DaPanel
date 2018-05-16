@@ -29,7 +29,7 @@ class OAuth2Controller extends Controller
             if($oauthToken == null) $oauthToken == new ClientOAuth;
             else if($oauthToken->count() > 0) $oauthToken = $oauthToken->get()[0];
             else $oauthToken = null;
-            if($oauthToken != null){
+            if($oauthToken != null && $oauthToken["client_id"] != "-1"){
                 $accessToken = $oauthToken["access_token"];
                 $refreshToken = $oauthToken["refresh_token"];
                 if($accessToken != "null"){
