@@ -15,6 +15,7 @@ class PanelController extends Controller
         if($res == array()){
             return response()->json(["status"=>201,"message"=>"not found the panel!"]);
         }
+        
         $found = $res['found'];
         if($found == true){
             $token = session(Settings::discord_session());
@@ -37,7 +38,10 @@ class PanelController extends Controller
     public function login(Request $req, $id){
         $token = session(Settings::discord_session());
         if ($token == null){
-            return redirect()->route('panel.find', ["id"=>$id]);
+            $token = $req->input('token');
+            if($token == null){
+                return redirect()->route('panel.find', ["id"=>$id]);
+            }
         }
         $authProfile = TokenManager::auth($req, $token, $id);
         if($authProfile == null){
@@ -56,13 +60,16 @@ class PanelController extends Controller
                 "message" => $reason
             ]);
         }
-        return redirect(route("panel.open", ["id"=>$id]));
+        return redirect(route("panel.open", ["id"=>$id]) . '/?token=' . $clientToken);
     }
 
     public function open(Request $req, $id){
         $token = session(Settings::discord_session());
         if ($token == null){
-            return redirect()->route('panel.find', ["id"=>$id]);
+            $token = $req->input('token');
+            if($token == null){
+                return redirect()->route('panel.find', ["id"=>$id]);
+            }
         }
         $authProfile = TokenManager::auth($req, $token, $id);
         if($authProfile == null){
@@ -76,7 +83,7 @@ class PanelController extends Controller
             if($type == "route"){
                 $route = "panel.route";
             }
-            return redirect(route($route, ["id"=>$id,($type)=>$value]));
+            return redirect(route($route, ["id"=>$id,($type)=>$value]) . '/?token=' . $clientToken);
         } catch (\Exception $ex){
             return view('error.panel')->with([
                 "code" => 500,
@@ -89,7 +96,10 @@ class PanelController extends Controller
     public function page(Request $req, $id, $page){
         $token = session(Settings::discord_session());
         if ($token == null){
-            return redirect()->route('panel.find', ["id"=>$id]);
+            $token = $req->input('token');
+            if($token == null) {
+                return redirect()->route('panel.find', ["id"=>$id]);
+            }
         }
         $authProfile = TokenManager::auth($req, $token, $id);
         if($authProfile == null){
@@ -145,7 +155,10 @@ class PanelController extends Controller
     public function route(Request $req, $id, $route){
         $token = session(Settings::discord_session());
         if ($token == null){
-            return redirect()->route('panel.find', ["id"=>$id]);
+            $token = $req->input('token');
+            if($token == null){
+                return redirect()->route('panel.find', ["id"=>$id]);
+            }
         }
         $authProfile = TokenManager::auth($req, $token, $id);
         if($authProfile == null){
