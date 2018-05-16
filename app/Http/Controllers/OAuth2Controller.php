@@ -63,6 +63,7 @@ class OAuth2Controller extends Controller
             else $clientoauth = $oauthToken;
             $clientoauth->state = $state;
             $clientoauth["access_token"] = "null";
+            $clientoauth["refresh_token"] = "null";
             $clientoauth["client_id"] = "-1";
             $clientoauth->type = "client";
             $clientoauth->code = "null";
