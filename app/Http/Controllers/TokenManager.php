@@ -17,6 +17,7 @@ class TokenManager extends Controller
         if($id != $profile['panel_id']) return null;
         if($profile["client_id"] == -1) return null;
         $profile->save();
+        $profile["clientid"] = $profile["client_id"];
         return $profile;
     }
 
