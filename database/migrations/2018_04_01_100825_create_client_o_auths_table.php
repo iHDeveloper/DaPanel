@@ -15,12 +15,13 @@ class CreateClientOAuthsTable extends Migration
     {
         Schema::create('client_o_auths', function (Blueprint $table) {
             $table->increments('id');
-            $table->macAddress('ip');
-            $table->string('clientid');
-            $table->string('type');
-            $table->uuid('state');
-            $table->uuid('token');
+            $table->integer('client_id');
+            $table->string('access_token');
+            $table->string('refresh_token');
+            $table->string('state');
+            $table->string('code');
             $table->string('panel_id');
+            $table->string('type');
             $table->timestamps();
         });
     }
