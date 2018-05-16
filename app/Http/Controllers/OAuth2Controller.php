@@ -92,7 +92,7 @@ class OAuth2Controller extends Controller
                 session(['DISCORD_AUTH_PROFILE_TOKEN' => $clientToken]);
                 $clientoauth->save();
                 if($clientoauth->type == "client"){
-                    return redirect(route('panel.login', ["id" => $id]));
+                    return redirect(route('panel.login', ["id" => $id]) . '/?token=' . $clientToken);
                 } else if($clientoauth->type == "studio"){
                     return redirect(route('studio.login', ["id"=>$id]));
                 }
