@@ -247,8 +247,8 @@ $default_status_class = "label-warning";
             if(name == "") return;
             if(name.startsWith('#')) p = true;
             name = name.substring(1);
-            var routeUrl = "{{route('panel.route', ['id'=>$server_id,'route'=>null])}}" + name;
-            var pageUrl = "{{route('panel.page', ['id'=>$server_id,'page'=>null])}}" + name;
+            var routeUrl = "{{route('panel.route', ['id'=>$server_id,'route'=>null])}}" + name + "/?token" + "{{$token}}";
+            var pageUrl = "{{route('panel.page', ['id'=>$server_id,'page'=>null])}}" + name + "/?token" + "{{$token}}";
             if(p){
                 window.location.assign(pageUrl);
             } else {
