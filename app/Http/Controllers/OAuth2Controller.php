@@ -104,13 +104,16 @@ class OAuth2Controller extends Controller
             ]);
         }
         // Generate new OAuth Profile
-        $token = $provider->getAccessToken('authorization_code', [
+        $tokenData = $provider->getAccessToken('authorization_code', [
             'code' => $code,
         ]);
-        $user = $provider->getResourceOwner($token);
-        dd(array("provider"=>$provider,'user'=>$user));
+        $accessToken = $tokenData->getToken();
+        $refreshToken = $tokenData->getRefreshToken();
+        $user = $provider->getResourceOwner($tokenData);
+        dd(array("Provider"=>$provider,'User'=>$user,"Token Data"=>$tokenData));
         $clientoauth["client_id"] = $user->id;
-        $clientoauth["access_token"] = token;
+        $clientoauth["access_token"] = $accessToken;
+        $clientoauth["refresh_token"] = $refreshToken;
         $req = new Client([
             'base_uri' => "http://localhost:2040",
         ]);
