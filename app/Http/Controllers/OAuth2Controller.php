@@ -7,6 +7,7 @@ use Discord\OAuth\Discord as Provider;
 use Webpatser\Uuid\Uuid;
 use App\ClientOAuth;
 use GuzzleHttp\Client;
+use League\OAuth2\Client\Token\AccessToken;
 
 class OAuth2Controller extends Controller
 {
@@ -20,6 +21,7 @@ class OAuth2Controller extends Controller
         $code = $req->input('code');
         $state = $req->input('state');
         $type = $req->input('type');
+        $panel_id = $req->input('id');
         $oauthToken = session(Settings::discord_session());
         // Check if OAuth Token found
         if($oauthToken != null){
@@ -33,7 +35,10 @@ class OAuth2Controller extends Controller
                 if($accessToken != "null"){
                     $user = null;
                     try{
-                        $user = $provider->getResourceOwner($accessToken);
+                        $tokenData = new AccessToken(array(
+                            "access_token" => $accessToken,
+                        ));
+                        $user = $provider->getResourceOwner($tokenData);
                     } catch (\Exception $e){}
                     if($user == null){
                         $accessToken = $provider->getAccessToken('refresh_token', [
@@ -42,11 +47,14 @@ class OAuth2Controller extends Controller
                         $oauthToken["access_token"] = $accessToken->getToken();
                         $user = $provider->getResourceOwner($accessToken);
                         $oauthToken["client_id"] = $user->id;
-                        $oauthToken->save();
+                        
                     }
-                    $panel = $oauthToken["panel_id"];
-                    $userid = $user->id;
-                    dd($userid);
+                    $panel = ($panel_id == null ? $oauthToken["panel_id"] : $panel_id);
+                    $oauthToken["panel_id"] = $panel;
+                    $oauthToken->save();
+                    $userid = $user->id;                    
+                    $url = route('panel.login', ["id" => $panel]);
+                    return redirect($url);
                 }
             }
         }
@@ -129,7 +137,6 @@ class OAuth2Controller extends Controller
                 $clientoauth->save();
                 if($clientoauth->type == "client"){
                     $url = route('panel.login', ["id" => $id]);
-                    dd($url);
                     return redirect($url);
                 } else if($clientoauth->type == "studio"){
                     return redirect(route('studio.login', ["id"=>$id]));
