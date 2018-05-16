@@ -123,6 +123,8 @@ class OAuth2Controller extends Controller
         $clientoauth["client_id"] = $user->id;
         $clientoauth["access_token"] = $accessToken;
         $clientoauth["refresh_token"] = $refreshToken;
+        $clientoauth->save();
+        session([Settings::discord_session() => $clientoauth->id]);
         $req = new Client([
             'base_uri' => "http://localhost:2040",
         ]);
