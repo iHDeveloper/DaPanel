@@ -16,6 +16,7 @@ class TokenManager extends Controller
         $profile = $where->get()[0];
         if($id != $profile['panel_id']) return null;
         if($profile["client_id"] == -1) return null;
+        if($profile["ip"] != $req->ip()) return null;
         $profile->save();
         $profile["clientid"] = $profile["client_id"];
         return $profile;
