@@ -23,25 +23,29 @@ class OAuth2Controller extends Controller
         $oauthToken = session(Settings::discord_session());
         // Check if OAuth Token found
         if($oauthToken != null){
-            $oauthToken = ClientOAuth::find(Settings::discord_session());
+            $oauthToken = ClientOAuth::find($oauthToken);
+            if($oauthToken->count() > 0) $oauthToken = $oauthToken->get()[0];
+            else $oauthToken = null;
             if($oauthToken != null){
                 $accessToken = $oauthToken["access_token"];
                 $refreshToken = $oauthToken["refresh_token"];
-                $user = null;
-                try{
-                    $user = $provider->getResourceOwner($accessToken);
-                } catch (\Exception $e){}
-                if($user == null){
-                    $accessToken = $provider->getAccessToken('refresh_token', [
-                        'refresh_token' => $refreshToken,
-                    ]);
-                    $oauthToken["access_token"] = $accessToken;
-                    $oauthToken->save();
-                    $user = $provider->getResourceOwner($accessToken);
+                if($accessToken != "null"){
+                    $user = null;
+                    try{
+                        $user = $provider->getResourceOwner($accessToken);
+                    } catch (\Exception $e){}
+                    if($user == null){
+                        $accessToken = $provider->getAccessToken('refresh_token', [
+                            'refresh_token' => $refreshToken,
+                        ]);
+                        $oauthToken["access_token"] = $accessToken;
+                        $oauthToken->save();
+                        $user = $provider->getResourceOwner($accessToken);
+                    }
+                    $panel = $oauthToken["panel_id"];
+                    $userid = $user->id;
+                    dd($userid);
                 }
-                $panel = $oauthToken["panel_id"];
-                $userid = $user->id;
-                dd($userid);
             }
         }
         if($type == null){
