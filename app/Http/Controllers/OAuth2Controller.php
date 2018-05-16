@@ -12,9 +12,38 @@ class OAuth2Controller extends Controller
 {
     
     public function discord(Request $req){
+        $provider = new Provider([
+            'clientId' => Settings::discord_client_id(),
+            'clientSecret' => Settings::discord_client_secret(),
+            'redirectUri'  => Settings::discord_redirect_url(),
+        ]);
         $code = $req->input('code');
         $state = $req->input('state');
         $type = $req->input('type');
+        $oauthToken = session(Settings::discord_session());
+        // Check if OAuth Token found
+        if($oauthToken != null){
+            $oauthToken = ClientOAuth::find(Settings::discord_session());
+            if($oauthToken != null){
+                $accessToken = $oauthToken["access_token"];
+                $refreshToken = $oauthToken["refresh_token"];
+                $user = null;
+                try{
+                    $user = $provider->getResourceOwner($accessToken);
+                } catch (\Exception $e){}
+                if($user == null){
+                    $accessToken = $provider->getAccessToken('refresh_token', [
+                        'refresh_token' => $refreshToken,
+                    ]);
+                    $oauthToken["access_token"] = $accessToken;
+                    $oauthToken->save();
+                    $user = $provider->getResourceOwner($accessToken);
+                }
+                $panel = $oauthToken["panel_id"];
+                $userid = $user->id;
+                dd($userid);
+            }
+        }
         if($type == null){
             $type == "client";
         }
@@ -26,22 +55,20 @@ class OAuth2Controller extends Controller
                 "message" => "The given id in the url is not correct"
             ]);
         }
-        $provider = new Provider([
-            'clientId' => Settings::discord_client_id(),
-            'clientSecret' => Settings::discord_client_secret(),
-            'redirectUri'  => Settings::discord_redirect_url(),
-        ]);
+        // Check from the State
         if ($code == null && $state == null){
             $state = Uuid::generate();
             $url = $provider->getAuthorizationUrl() . '&state=' . $state;
-            $clientoauth = new ClientOAuth;
+            if($oauthToken == null) $clientoauth = new ClientOAuth;
+            else $clientoauth = $oauthToken;
             $clientoauth->state = $state;
-            $clientoauth->ip = request()->ip();
-            $clientoauth->clientid = "-1";
+            $clientoauth["access_token"] = "null";
+            $clientoauth["client_id"] = "-1";
             $clientoauth->type = "client";
-            $clientoauth->token = Uuid::generate();
+            $clientoauth->code = "null";
             $clientoauth['panel_id'] = $id;
             $clientoauth->save();
+            session([Settings::discord_session() => $clientoauth->id]);
             return redirect()->to($url);
         }
         if($state == null){
@@ -56,16 +83,14 @@ class OAuth2Controller extends Controller
         if(strpos($state, ',')){
             $realstate = explode(',', $state);
             $realstate = $realstate[1];
-            $clientoauth = ClientOAuth::where('state', $realstate);
-            if($clientoauth->count() <= 0){
+            $clientoauth = $oauthToken;
+            if($clientoauth->state == $realstate){
                 return view('error.panel')->with([
                     "code" => 203,
                     "title" => "OAuth2 Error",
                     "message" => "Something went wrong in the state in the oauth2"
                 ]);
-            }
-            $clientoauth = $clientoauth->get()[0];
-            $clientToken = $clientoauth->token; 
+            } 
         } else {
             return view('error.panel')->with([
                 "code" => 203,
@@ -73,37 +98,30 @@ class OAuth2Controller extends Controller
                 "message" => "Something went wrong in the state in the oauth2"
             ]);
         }
-        try{
-            $token = $provider->getAccessToken('authorization_code', [
-                'code' => $code,
-            ]);
-        } catch (\Exception $ex){
-            $w = ClientOAuth::where('ip', $req->ip());
-            if($w->count() > 0){
-                foreach ($w->get() as $trash) {
-                    $trash->delete();
-                }
-            }
-            $w->delete();
-            return redirect(route('panel.find', ["id" => $id]));
-        }
+        // Generate new OAuth Profile
+        $token = $provider->getAccessToken('authorization_code', [
+            'code' => $code,
+        ]);
         $user = $provider->getResourceOwner($token);
-        $clientoauth->clientid = $user->id;
+        dd(array("provider"=>$provider,'user'=>$user));
+        $clientoauth["client_id"] = $user->id;
+        $clientoauth["access_token"] = token;
         $req = new Client([
             'base_uri' => "http://localhost:2040",
         ]);
         if($id == null) $id = $clientoauth['panel_id'];
-        $res = $req->request("GET", '/check/client/'. $id . '/' . $user->id);
+        $res = $req->request("GET", '/check/client/'. $id . '/' . $clientoauth["client_id"]);
         $stream = $res->getBody();
         $response = json_decode($stream->getContents(), true);
         $panel = ($response['panel'] == "true" ? true : false);
         $client = ($response['client'] == "true" ? true : false);
         if($panel){
             if ($client){
-                session(['DISCORD_AUTH_PROFILE_TOKEN' => $clientToken]);
                 $clientoauth->save();
                 if($clientoauth->type == "client"){
-                    return redirect(route('panel.login', ["id" => $id]) . '/?token=' . $clientToken);
+                    $url = route('panel.login', ["id" => $id]);
+                    dd($url);
+                    return redirect($url);
                 } else if($clientoauth->type == "studio"){
                     return redirect(route('studio.login', ["id"=>$id]));
                 }
