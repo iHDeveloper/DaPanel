@@ -10,7 +10,7 @@ class TokenManager extends Controller
     
     public static function auth(Request $req, $token, $id){
         if($token == null) return null;
-        $where = AuthProfile::find($token);
+        $where = AuthProfile::where('id', $token);
         if($where == null) return null;
         if($where->count() <= 0) return null;
         $profile = $where->get()[0];
